@@ -1,0 +1,17 @@
+\name{incomes}
+\docType{data}
+\alias{incomes}
+\title{Mean Family Incomes}
+\description{
+Random sample of 152 families giving their mean income (\$000s). The sample was taken by an advertising agency over their area of operations.  
+}
+\usage{incomes}
+\keyword{datasets}
+
+
+
+
+
+
+
+

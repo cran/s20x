@@ -1,0 +1,27 @@
+\name{soya}
+\docType{data}
+\alias{soya}
+\title{Soya Bean Yields}
+\description{
+Data from an experiment to examine the effects of different planting times on the yield of soya beans, given four different cultivars.
+}
+\usage{data (soya)}
+\format{
+A data frame with 32 observations on 3 variables.
+\tabular{rlll}{
+[,1] \tab yield \tab numeric \tab Yield of each plant \cr
+[,2] \tab cultivar \tab factor \tab Cultivar used (cult1, cult2, cult3, cult4)\cr
+[,3] \tab planttime \tab factor \tab Month of planting (Novemb, Decemb)
+}
+}
+\source{Littler, R. University of Waikato}
+\keyword{datasets}
+
+
+
+
+
+
+
+
+
