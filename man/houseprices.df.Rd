@@ -1,11 +1,11 @@
-\name{houseprices}
+\name{houseprices.df}
 \docType{data}
-\alias{houseprices}
+\alias{houseprices.df}
 \title{Sale and Advertised Prices of Houses}
 \description{
-A random sample of 100 houses recently sold in Mt Eden, Auckland. For each house we have the advertised price and the actual sale price.    
+A random sample of 100 houses recently sold in Mt Eden, Auckland. For each house we have the advertised price and the actual sale price.
 }
-\usage{data (houseprices)}
+\usage{data (houseprices.df)}
 \format{
 A data frame with 100 observations on 2 variables.
 \tabular{rlll}{

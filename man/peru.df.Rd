@@ -1,11 +1,11 @@
-\name{peru}
+\name{peru.df}
 \docType{data}
-\alias{peru}
+\alias{peru.df}
 \title{Peruvian Indians}
 \description{
 A random sample of Peruvian Indians born in the Andes mountains, but who have since migrated to lower altitudes. The sample was collected to assess the long term effects of altitude on blood pressure.
 }
-\usage{data (peru)}
+\usage{data(peru.df)}
 \format{
 A data frame with 39 observations on 5 variables.
 \tabular{rlll}{

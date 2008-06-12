@@ -1,11 +1,11 @@
-\name{diamonds}
+\name{diamonds.df}
 \docType{data}
-\alias{diamonds}
+\alias{diamonds.df}
 \title{Prices and Weights of Diamonds}
 \description{
 Prices of ladies' diamond rings from a Singaporean retailer and the weight of their diamond stones.
 }
-\usage{data (diamonds)}
+\usage{data (diamonds.df)}
 \format{
 A data frame with 48 observations on 2 variables.
 \tabular{rlll}{

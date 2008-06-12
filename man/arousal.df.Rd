@@ -1,11 +1,11 @@
-\name{arousal}
+\name{arousal.df}
 \docType{data}
-\alias{arousal}
+\alias{arousal.df}
 \title{Changes in Pupil Size with Emotional Arousal}
 \description{
 Data from an experiment to measure the effect of different images on emotional arousal, by measuring changes in pupil diameter. The experiment used 20 males and 20 females. Images included a nude man, nude woman, infant, and a landscape.
 }
-\usage{data (arousal)}
+\usage{data (arousal.df)}
 \format{
 A data frame with 160 observations on 3 variables.
 \tabular{rlll}{

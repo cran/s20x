@@ -1,7 +1,6 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (bursary.01)
-bursary.df = bursary.01
+data(bursary.df)
 bursary.df
 attach(bursary.df)
 plot(pass.rate~decile,main="Pass rate versus decile")
@@ -19,5 +18,5 @@ summary(bursary.fit2)
 exp(ci.reg(bursary.fit2))
 
 par (opar)
-
+detach(bursary.df)
 

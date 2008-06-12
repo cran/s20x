@@ -32,12 +32,12 @@ corresponding hypothesized probabilities. )}
 }
 
 \examples{
-##Body image data: 
-data(bodim)
-attach(bodim)
+##Body image data:
+data(bodim.df)
+attach(bodim.df)
 freq1way(table(ethnicity))
 freq1way(table(ethnicity),hypothprob=c(0.2,0.4,0.3,0.1))
-detach(bodim)
+detach(bodim.df)
 }
 
 \keyword{htest}

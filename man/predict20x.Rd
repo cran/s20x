@@ -3,15 +3,16 @@
 \alias{predict.20x}
 \title{Model Predictions for a Linear Model}
 \usage{
-predict20x(lmfit, newdata, cilevel = 0.95, digit = 3, print.out = TRUE)
-predict.20x(lmfit, newdata, cilevel = 0.95, digit = 3, print.out = TRUE)
+predict20x(object, newdata, cilevel = 0.95, digit = 3, print.out = TRUE,
+           ...)
 }
 \arguments{
- \item{lmfit}{an lm object, i.e. the output from "lm()".}
+  \item{object}{an lm object, i.e. the output from "lm()".}
  \item{newdata}{prediction data frame.}
  \item{cilevel}{confidence level of the interval.}
  \item{digit}{decimal numbers after the point.}
  \item{print.out}{if T, print out the prediction matrix.}
+ \item{\dots}{optional arguments that are passed to the generic "predict"}
 }
 \description{
  Uses the main output and some error messages from R
@@ -36,19 +37,21 @@ Also note that the "predict.20x" function is deprecated. Will be obsolete as of 
 
 \examples{
 # Zoo data
-data(zoo)
-attach(zoo)
+data(zoo.df)
+attach(zoo.df)
 day.type<-factor(day.type)
 fit1<-lm(log(attendance) ~ time + sun.yesterday + nice.day + day.type + tv.ads)
 pred.zoo<-data.frame(8,10.8,0,factor(3),1.181)
 predict20x(fit1,pred.zoo)
+detach(zoo.df)
 
 # Peruvian Indians data
-data(peru)
-attach(peru)
+data(peru.df)
+attach(peru.df)
 fit2<-lm(BP ~ age + years + I(years^2) + weight + height)
 pred.peru<-data.frame(21,2,2^2,71,1629)
 predict20x(fit2,pred.peru)
+detach(peru.df)
 }
 
 \keyword{htest}

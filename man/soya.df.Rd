@@ -1,11 +1,11 @@
-\name{soya}
+\name{soya.df}
 \docType{data}
-\alias{soya}
+\alias{soya.df}
 \title{Soya Bean Yields}
 \description{
 Data from an experiment to examine the effects of different planting times on the yield of soya beans, given four different cultivars.
 }
-\usage{data (soya)}
+\usage{data(soya.df)}
 \format{
 A data frame with 32 observations on 3 variables.
 \tabular{rlll}{

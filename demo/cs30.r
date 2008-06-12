@@ -1,7 +1,7 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (peru)
-peru.df = peru
+data(peru.df)
+
 peru.df
 attach(peru.df)
 pairs.20x(data.frame(BP,age,years,weight,height))
@@ -37,6 +37,7 @@ bp<- -1.76743*yrs+(0.03225*(yrs^2))
 matplot(yrs,bp,type="l",main="BP versus Years",xlab="years",ylab="BP")
 abline(v=27)
 
+detach(peru.df)
 par (opar)
 
 

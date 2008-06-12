@@ -1,23 +1,26 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
-data (STATS20x)
-course.df = STATS20x
+readline("Press <Enter> to continue:")
+data(course.df)
+readline("Press <Enter> to continue:")
 attach(course.df)
+readline("Press <Enter> to continue:")
 Exam
+readline("Press <Enter> to continue:")
 stripchart(Exam,method="stack",pch=1,main="STATS 20x Exam marks",xlab="exam mark")
+readline("Press <Enter> to continue:")
 layout.20x(1,2)
+readline("Press <Enter> to continue:")
 hist(Exam)
+readline("Press <Enter> to continue:")
 plot(density(Exam))
+readline("Press <Enter> to continue:")
 numerical.summary(Exam)
+readline("Press <Enter> to continue:")
 t.test(Exam)
+readline("Press <Enter> to continue:")
 layout.20x(1,1)
-
+readline("Press <Enter> to continue:")
+detach(course.df)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-
-
-
-

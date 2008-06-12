@@ -25,14 +25,14 @@ estimate.contrasts.II (contrast.matrix, fit, alpha = 0.05, row = TRUE, L)
 
 \examples{
 ## computer data:
-data(computer)
-attach(computer)
+data(computer.df)
+attach(computer.df)
 selfassess <- factor(selfassess)
 computer.fit <- lm(score ~ selfassess)
 contrast.matrix <- matrix(c(-1/2,-1/2,1),byrow=TRUE,nrow=1,ncol=3)
 contrast.matrix
 estimate.contrasts(contrast.matrix,computer.fit)
-detach(computer)
+detach(computer.df)
 }
 \keyword{models}
 

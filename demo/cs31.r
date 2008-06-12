@@ -1,8 +1,8 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (camplake)
+data (camplake.df)
 camplake.df = camplake
-camplake.df
+
 attach(camplake.df)
 pairs.20x(data.frame(Length,Age,Scale.Radius))
 bluegill.fit<-lm(Length~Age+Scale.Radius)
@@ -21,6 +21,7 @@ shapiro.test(residuals(bluegill.fit2))
 cooks.20x(bluegill.fit2)
 exp(ci.reg(bluegill.fit2))
 
+detach(camplake.df)
 par (opar)
 
 

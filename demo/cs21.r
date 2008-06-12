@@ -1,7 +1,7 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (fire)
-fire.df = fire
+data (fire.df)
+
 fire.df
 attach(fire.df)
 plot(damage~distance,main="Damage versus distance")
@@ -14,6 +14,7 @@ ci.reg(fire.fit)
 fire.predict<-data.frame(c(1,4))
 predict.20x(fire.fit,fire.predict)
 
+detach(fire.df)
 par (opar)
 
 

@@ -1,8 +1,6 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (mazda)
-mazda.df = mazda
-mazda.df
+data (mazda.df)
 attach(mazda.df)
 age<-91-year
 plot(price~age,main="Mazda Car Prices")
@@ -15,6 +13,7 @@ shapiro.test(residuals(mazda.fit))
 summary(mazda.fit)
 exp(ci.reg(mazda.fit))
 
+detach(mazda.df)
 par (opar)
 
 

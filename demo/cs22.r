@@ -1,7 +1,6 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (diamonds)
-diamonds.df = diamonds
+data (diamonds.df)
 diamonds.df
 attach(diamonds.df)
 plot(price~weight,main="Price versus weight of diamonds")
@@ -17,6 +16,7 @@ ci.reg(diamond.fit)
 diamond.predict<-data.frame(c(0.3,1.2))
 predict.20x(diamond.fit,diamond.predict)
 
+detach(diamonds.df)
 par (opar)
 
 

@@ -2,12 +2,13 @@
 \alias{pairs20x}
 \alias{pairs.20x}
 \title{Pairwise Scatter Plots with Histograms and Correlations}
-\usage{pairs20x(dataframe)
-pairs.20x(dataframe)
+\usage{
+pairs20x(x, ...)
 }
 
 \arguments{
-\item{dataframe}{data frame.}
+  \item{x}{a data frame.}
+  \item{\dots}{optional argumments which are passed to the generic pairs.}
 }
 \description{Plots pairwise scatter plots with histograms and correlations for the data frame.
 
@@ -21,10 +22,10 @@ Note that the "pairs.20x" function is deprecated. Will be obsolete as of Decembe
 
 \examples{
 ##peruvian indians
-data(peru)
-attach(peru)
-pairs20x(data.frame(peru))
-detach(peru)
+data(peru.df)
+attach(peru.df)
+pairs20x(peru.df)
+detach(peru.df)
 }
 
 \keyword{hplot}

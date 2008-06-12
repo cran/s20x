@@ -1,11 +1,11 @@
-\name{mozart}
+\name{mozart.df}
 \docType{data}
-\alias{mozart}
+\alias{mozart.df}
 \title{Length of Mozart's Movements}
 \description{
 Length of movements from 11 of Mozart's early symphonies and 11 of his late symphonies.
 }
-\usage{data (mozart)}
+\usage{data (mozart.df)}
 \format{
 A data frame with 88 observations on 3 variables.
 \tabular{rlll}{

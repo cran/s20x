@@ -1,9 +1,8 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (soya)
-SoyaBean.df = soya
-attach(SoyaBean.df)
-SoyaBean.df
+data (soya.df)
+attach(soya.df)
+soya.df
 interaction.plots(yield~cultivar+planttime)
 interaction.plots(yield~planttime+cultivar)
 levene.test(yield~cultivar+planttime)
@@ -15,6 +14,7 @@ summary2way(soya.fit,page="effects")
 summary2way(soya.fit,page="means")
 summary2way(soya.fit,page="nointeraction")
 
+detach(soya.df)
 par (opar)
 
 

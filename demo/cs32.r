@@ -1,7 +1,7 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (STATS20x)
-course.df = STATS20x
+data (course.df)
+
 course.df
 attach(course.df)
 pairs.20x(data.frame(Exam,Assign,Test,Years.Since))
@@ -25,7 +25,7 @@ plot(residuals(exam.fit5)~Assign,main="Residual plot (Assign)")
 lines(lowess(Assign,residuals(exam.fit5)))
 plot(residuals(exam.fit5)~Test,main="Residual plot (Test)")
 lines(lowess(Test,residuals(exam.fit5)))
-layout.20x(1,1) 
+layout.20x(1,1)
 exam.fit6<-lm(Exam~Assign+Test+I(Test^2)+Stage1)
 summary(exam.fit6)
 plot(exam.fit6,which=1)
@@ -48,6 +48,7 @@ test<-seq(4,20,by=0.01)
 exam<- -1.2472*test+(0.13846*(test^2))
 matplot(test,exam,type="l",main="Exam versus Test",xlab="test",ylab="eaxm")
 
+detach(course.df)
 par (opar)
 
 

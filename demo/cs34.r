@@ -1,7 +1,6 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (zoo)
-zoo.df = zoo
+data (zoo.df)
 zoo.df
 attach(zoo.df)
 pairs.20x(data.frame(attendance,time,sun.yesterday,tv.ads))
@@ -21,6 +20,7 @@ plot(zoo.fit1,which=2)
 shapiro.test(residuals(zoo.fit1))
 exp(ci.reg(zoo.fit1))
 
+detach(zoo.df)
 par (opar)
 
 

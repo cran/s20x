@@ -13,12 +13,12 @@
 \value{Function returns no value.}
 
 \examples{
-data(STATS20x)
-attach(STATS20x)
+data(course.df)
+attach(course.df)
 layout.20x(1,2)
 stripchart(Exam)
 boxplot(Exam)
-detach(STATS20x)
+detach(course.df)
 }
 
 \keyword{device}

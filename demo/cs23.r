@@ -1,7 +1,6 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (camplake)
-camplake.df = camplake
+data (camplake.df)
 attach(camplake.df)
 camplake.df
 trendscatter(Length~Scale.Radius)
@@ -26,6 +25,7 @@ plot(bluegill.fit,which=2)
 shapiro.test(residuals(bluegill.fit))
 ci.reg(bluegill.fit)
 
+detach(camplake.df)
 par (opar)
 
 

@@ -11,7 +11,7 @@ trendscatter(x, \dots)
 \arguments{
   \item{x}{the coordinates of the points in the scatter
     plot. Alternatively, a function.}
- 
+
  \item{y}{the y coordinates of the points in the plot, ignored if
     'x' is a function.}
  \item{f}{the smoother span. This gives the proportion of points in the
@@ -24,7 +24,7 @@ trendscatter(x, \dots)
  \item{\dots}{Optional arguments}
 }
 \description{
-Plots a scatter plot for the variables x, y along with a lowess smooth for the underlying trend. One standard deviation 
+Plots a scatter plot for the variables x, y along with a lowess smooth for the underlying trend. One standard deviation
 error bounds for the scatter about this trend are also plotted.
 }
 \value{Returns the plot.}
@@ -43,13 +43,13 @@ y<-exp(5+3*x+e)
 trendscatter(log(y)~x)
 
 # Peruvian Indians data
-data(peru)
-trendscatter(BP~weight, data=peru)
+data(peru.df)
+trendscatter(BP~weight, data=peru.df)
 
 # Note: this usage is deprecated
-attach(peru)
+attach(peru.df)
 trendscatter(weight,BP)
-detach(peru)
+detach(peru.df)
 }
 
 \keyword{hplot}

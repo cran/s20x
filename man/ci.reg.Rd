@@ -15,12 +15,12 @@
 \value{The function returns a two-column matrix containing the upper and lower endpoints of the intervals.}
 
 \examples{
-##Peruvian Indians data 
-data(peru)
-attach(peru)
+##Peruvian Indians data
+data(peru.df)
+attach(peru.df)
 fit<-lm(BP ~ age + years + weight + height)
 ci.reg(fit)
-detach(peru)
+detach(peru.df)
 }
 
 \keyword{htest}

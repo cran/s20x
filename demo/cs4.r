@@ -1,9 +1,8 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (crest)
-Toothpaste.df = crest
-attach(Toothpaste.df)
-Toothpaste.df
+data (toothpaste.df)
+attach(toothpaste.df)
+toothpaste.df
 ages<-c(purchasers,nonpurchasers)
 buy<-rep(c("Yes","No"),c(20,20))
 buy<-factor(buy)
@@ -17,6 +16,7 @@ t.test(purchasers,nonpurchasers)
 t.test(purchasers,nonpurchasers,conf.level=0.9)
 layout.20x(1,1)
 
+detach(toothpaste.df)
 par (opar)
 
 

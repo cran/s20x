@@ -38,17 +38,17 @@ numerical.summary(x, \dots)
 
 \examples{
 ## STATS20x data:
-data(STATS20x)
-attach(STATS20x)
+data(course.df)
+attach(course.df)
 numerical.summary(Exam)
-detach(STATS20x)
+detach(course.df)
 
-numerical.summary(Exam~Stage1, STATS20x)
+numerical.summary(Exam~Stage1, course.df)
 
 ## Note this usage is deprecated.
-attach(STATS20x)
+attach(course.df)
 numerical.summary(Exam,Stage1)
-detach(STATS20x)
+detach(course.df)
 }
 
 \keyword{multivariate}

@@ -1,11 +1,11 @@
-\name{camplake}
+\name{camplake.df}
 \docType{data}
-\alias{camplake}
+\alias{camplake.df}
 \title{Age and Length of Camp Lake Bluegills}
 \description{
 66 bluegills were captured from Camp Lake, Minnesota. For each bluegill we have the length of the fish, its age in years and its age in scale radius.
 }
-\usage{data (camplake)}
+\usage{data (camplake.df)}
 \format{
 A data frame with 66 observations on 3 variables.
 \tabular{rlll}{

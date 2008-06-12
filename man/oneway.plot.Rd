@@ -23,7 +23,7 @@ oneway.plot(formula, conf.level = 0.95, interval.type = "tukey",
 }
 \description{
 Displays stripplot/boxplot of the reponse variable with intervals
- by factor levels. It is used as part of a one-way anova analysis. 
+ by factor levels. It is used as part of a one-way anova analysis.
 }
 
 \seealso{"summary.1way", "welch.test".}
@@ -31,11 +31,11 @@ Displays stripplot/boxplot of the reponse variable with intervals
 \examples{
 ##see example in "summary.1way"
 
-##sheep data: 
-data(computer)
-attach(computer)
+##sheep data:
+data(computer.df)
+attach(computer.df)
 oneway.plot(score~selfassess)
-detach(computer)
+detach(computer.df)
 }
 
 \keyword{hplot}

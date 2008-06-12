@@ -1,10 +1,8 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (arousal)
-Arousal.df = arousal
-remove (arousal)
-attach(Arousal.df)
-Arousal.df
+data (arousal.df)
+attach(arousal.df)
+arousal.df
 interaction.plots(arousal~picture+gender)
 interaction.plots(arousal~gender+picture)
 levene.test(arousal~gender+picture)

@@ -1,11 +1,11 @@
-\name{thyroid}
+\name{thyroid.df}
 \docType{data}
-\alias{thyroid}
+\alias{thyroid.df}
 \title{Effect of a New Drug on Thyroid Weights}
 \description{
 Data from an experiment to asses the effect of a new drug on the weight of the thyroid gland using 16 laboratory animals. The animals were randomly assigned into either a control group, or a treatment group, and each animal had its bodyweight recorded at the beginning of the experiment and its thyroid weight measured at the end of the experiment.
 }
-\usage{thyroid}
+\usage{data(thyroid.df)}
 \format{
 A data frame with 16 observations on 3 variables.
 \tabular{rlll}{

@@ -3,8 +3,7 @@
 \alias{summary.2way}
 \title{Two-way Analysis of Variance Summary}
 \usage{summary2way(fit, page = "table", digit = 5, conf.level = 0.95, print.out = TRUE, \dots)
-summary.2way(fit, page = "table", digit = 5, conf.level = 0.95, print.out = TRUE, \dots)}
-
+}
 \arguments{
 \item{fit}{an lm object, i.e. the output from "lm()".}
 \item{page}{options for output:  "table", "means", "effects", "interaction", "nointeraction"}
@@ -16,7 +15,7 @@ summary.2way(fit, page = "table", digit = 5, conf.level = 0.95, print.out = TRUE
 \description{Displays summary information for a two-way anova
      analysis. The lm object must come from a numerical
      response variable and factors. The output depends on the value of page:
-     
+
      page = "table"         anova table
      page = "means"         cell means matrix, numeric summary
      page = "effects"       table of effects
@@ -41,11 +40,11 @@ Note that the "summary.2way" function is deprecated. Will be obsolete as of Dece
 
 \examples{
 ##Arousal data:
-data(arousal)
-attach(arousal)
-fit<-lm(arousal~gender+picture+gender*picture,data=arousal)
+data(arousal.df)
+attach(arousal.df)
+fit<-lm(arousal~gender+picture+gender*picture,data=arousal.df)
 summary2way(fit)
-detach(arousal)
+detach(arousal.df)
 }
 \keyword{models}
 

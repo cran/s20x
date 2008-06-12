@@ -1,11 +1,11 @@
-\name{zoo}
+\name{zoo.df}
 \docType{data}
-\alias{zoo}
+\alias{zoo.df}
 \title{Zoo Attendance during an Advertising Campaign}
 \description{
 Data for 455 days of attendance records for Auckland Zoo, from January 1, 1993. Note that only 440 values are given due to missing values. It was of interest to assess whether an advertising campaign was effective in increasing attendance.
 }
-\usage{data (zoo)}
+\usage{data (zoo.df)}
 \format{
 A data frame with 440 observations on 6 variables.
 \tabular{rlll}{

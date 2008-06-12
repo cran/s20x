@@ -1,11 +1,11 @@
-\name{lakemary}
+\name{lakemary.df}
 \docType{data}
-\alias{lakemary}
+\alias{lakemary.df}
 \title{Ages and Lengths of Lake Mary Bluegills}
 \description{
 The ages and lengths of 78 bluegills captured from Lake Mary, Minnesota.
 }
-\usage{data (lakemary)}
+\usage{data (lakemary.df)}
 \format{
 A data frame with 78 observations on 2 variables.
 \tabular{rlll}{

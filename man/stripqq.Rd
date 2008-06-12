@@ -17,9 +17,10 @@
 
 \examples{
 ## Zoo data
-data(zoo)
-attach(zoo)
+data(zoo.df)
+attach(zoo.df)
 stripqq(attendance~day.type)
+detach(zoo.df)
 }
 
 \keyword{hplot}

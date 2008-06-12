@@ -12,7 +12,7 @@
 
 \value{A matrix of row proportions, i.e cell counts divided by row marginals.}
 
-\details{The "basic" option (default) produces the response distribution for each row population together with comparative bar charts. 
+\details{The "basic" option (default) produces the response distribution for each row population together with comparative bar charts.
 
 If comp="between" the resulting output displays how the probability of falling into a response class (column) differs between populations.  Confidence intervals for differences in proportions are produced together with a set of barcharts with LSD intervals.
 
@@ -22,12 +22,13 @@ If comp="within" the resulting output shows the extent to which the component pr
 \seealso{"coldistr", "crosstabs.20x", "thermoms".}
 
 \examples{
-data(bodim)
-attach(bodim)
+data(bodim.df)
+attach(bodim.df)
 z <- crosstabs.20x(~ ethnicity + married)
 rowdistr(z)
 rowdistr(z, comp="between")
 rowdistr(z, comp="within")
+detach(bodim.df)
 
 ##from matrix of counts
 z <- matrix(c(4,3,2,6,47,20,40,62,11,8,7,22,3,0,1,10), 4, 4)

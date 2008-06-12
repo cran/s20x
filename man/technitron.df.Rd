@@ -1,11 +1,11 @@
-\name{technitron}
+\name{technitron.df}
 \docType{data}
-\alias{technitron}
+\alias{technitron.df}
 \title{Technitron Salary Information}
 \description{
 Salary information for all salaried employees of the Technitron Company.
 }
-\usage{data (technitron)}
+\usage{data (technitron.df)}
 \format{
 A data frame with 46 observations on 8 variables.
 \tabular{rlll}{

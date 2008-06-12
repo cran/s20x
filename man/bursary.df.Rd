@@ -1,11 +1,11 @@
-\name{bursary.01}
+\name{bursary.df}
 \docType{data}
-\alias{bursary.01}
+\alias{bursary.df}
 \title{Bursary Results for Auckland Secondary Schools}
 \description{
 Data for the 2001 Bursary results for 75 secondary schools in the Auckland area. For each school the decile rating of the school is recorded along with the percentage of eligible students who gain a B Bursary or better.
 }
-\usage{data (bursary.01)}
+\usage{data (bursary.df)}
 \format{
 A data frame with 75 observations on 2 variables.
 \tabular{rlll}{

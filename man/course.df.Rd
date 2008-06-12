@@ -1,11 +1,11 @@
-\name{STATS20x}
+\name{course.df}
 \docType{data}
-\alias{STATS20x}
+\alias{course.df}
 \title{Stats 20x Summer School Data}
 \description{
 Data from a summer school Stats 20x course. Each observation represents a single student.
 }
-\usage{data (STATS20x)}
+\usage{data (course.df)}
 \format{
  A data frame with 146 observations on 15 variables.
 \tabular{rlll}{

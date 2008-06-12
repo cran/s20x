@@ -1,11 +1,11 @@
-\name{mazda}
+\name{mazda.df}
 \docType{data}
-\alias{mazda}
+\alias{mazda.df}
 \title{Year and Price of Mazda Cars}
 \description{
 Prices and ages of 124 Mazda cars collected from the Melbourne Age newspaper in 1991.
 }
-\usage{data (mazda)}
+\usage{data (mazda.df)}
 \format{
 A data frame with 124 observations on 2 variables.
 \tabular{rlll}{

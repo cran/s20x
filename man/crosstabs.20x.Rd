@@ -17,9 +17,9 @@ internally as factors.}
 \item{Totals}{a matrix containing the cell counts and the marginal totals.}}
 
 \examples{
-##body image data: 
-data(bodim)
-crosstabs.20x(~ ethnicity + married, bodim)
+##body image data:
+data(bodim.df)
+crosstabs.20x(~ ethnicity + married, bodim.df)
 }
 
 \keyword{htest}

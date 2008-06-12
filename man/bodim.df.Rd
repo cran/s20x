@@ -1,11 +1,11 @@
-\name{bodim}
+\name{bodim.df}
 \docType{data}
-\alias{bodim}
+\alias{bodim.df}
 \title{Body Image and Ethnicity}
 \description{
 Data collected to examine how women from various ethnic groups rate their body image. All subjects were slightly underweight for their body size.
 }
-\usage{data (bodim)}
+\usage{data (bodim.df)}
 \format{
 A data frame with 246 observations on 8 variables.
 \tabular{rlll}{

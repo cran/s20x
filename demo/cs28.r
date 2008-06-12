@@ -1,7 +1,7 @@
 opar = par (ask = dev.interactive (orNone = TRUE) )
 
-data (teach.methods)
-teach.df = teach.methods
+data(teach.df)
+
 teach.df
 attach(teach.df)
 plot(lang~IQ,main="Language Score versus IQ (by method)",type="n")
@@ -23,6 +23,7 @@ abline(teach.fit$coef[1],teach.fit$coef[2])
 abline(teach.fit$coef[1]+teach.fit$coef[3],teach.fit$coef[2])
 abline(teach.fit$coef[1]+teach.fit$coef[4],teach.fit$coef[2])
 
+detach(teach.df)
 par (opar)
 
 

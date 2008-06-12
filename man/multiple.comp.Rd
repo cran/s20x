@@ -15,11 +15,11 @@ differences in means in a one-way ANOVA.}
 
 \examples{
 ## computer data
-data(computer)
-attach(computer)
+data(computer.df)
+attach(computer.df)
 fit <- lm(score ~ factor(selfassess))
 multiple.comp(fit)
-detach(computer)
+detach(computer.df)
 }
 
 \keyword{htest}

@@ -15,11 +15,11 @@
 
 \examples{
 ## arousal data:
-data(arousal)
-attach(arousal)
+data(arousal.df)
+attach(arousal.df)
 gender.picture<-factor(interaction.20x(gender,picture))
 gender.picture
-detach(arousal)
+detach(arousal.df)
 }
 
 \keyword{models}

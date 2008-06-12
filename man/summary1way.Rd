@@ -5,8 +5,6 @@
 \usage{
 summary1way(fit, digit = 5, conf.level = 0.95, inttype = "tukey",
              pooled = TRUE, print.out = TRUE, draw.plot = TRUE, \dots)
-summary.1way(fit, digit = 5, conf.level = 0.95, inttype = "tukey",
-             pooled = TRUE, print.out = TRUE, draw.plot = TRUE, \dots)
 }
 \arguments{
  \item{fit}{an lm object, i.e. the output from "lm()".}
@@ -51,7 +49,7 @@ l <- rep(c("Gp1","Gp2","Gp3"),rep(6,3))
 l <- factor(l)
 f <-lm(attitudes ~ l)
 result <- summary1way(f)
-result 
+result
 }
 
 \keyword{models}

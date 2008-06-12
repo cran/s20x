@@ -19,8 +19,9 @@ panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
          text(0.5, 0.5, txt, cex = cex * r)
      }
 
-pairs20x <- function (dataframe)
-{	pairs(dataframe,upper.panel=panel.smooth,lower.panel=panel.cor,diag.panel=panel.hist)
+pairs20x <- function(x, ...)
+{	pairs(x, upper.panel=panel.smooth,lower.panel=panel.cor,
+              diag.panel=panel.hist, ...)
 }
 
 

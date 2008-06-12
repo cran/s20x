@@ -1,11 +1,11 @@
-\name{computer}
+\name{computer.df}
 \docType{data}
-\alias{computer}
+\alias{computer.df}
 \title{Computer Questionnaire}
 \description{
 Data from a test to see if a questionnaire was properly designed. The questionnaire measures managers' technical knowledge of computers. The test has 19 managers complete the questionnaire as well as rate their own technical expertise.
 }
-\usage{data (computer)}
+\usage{data (computer.df)}
 \format{
 A data frame with 19 observations on 2 variables.
 \tabular{rlll}{
