@@ -21,7 +21,7 @@
   \item{p.value}{P-value.}
 }
 
-\seealso{"interaction.20x", "anova".}
+\seealso{"crossFactors", "anova".}
 
 \examples{
 ##

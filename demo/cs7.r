@@ -1,33 +1,44 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
-data (mergers)
-Merger.df = mergers
-attach(Merger.df)
+readline("Press <Enter> to continue:")
+data (mergers.df)
+readline("Press <Enter> to continue:")
+attach(mergers.df)
+readline("Press <Enter> to continue:")
 mergerdays
-layout.20x(1,3)
+readline("Press <Enter> to continue:")
+layout20x(1,3)
+readline("Press <Enter> to continue:")
 hist(mergerdays)
+readline("Press <Enter> to continue:")
 boxplot(mergerdays,main="Boxplot of Merger Days")
+readline("Press <Enter> to continue:")
 stripchart(mergerdays,main="Stripchart of Merger Days",pch=1,vert=T)
-numerical.summary(mergerdays)
-layout.20x(1,1)
-qqnorm(mergerdays)
-abline(mean(mergerdays),sd(mergerdays))
-shapiro.test(mergerdays)
+readline("Press <Enter> to continue:")
+summaryStats(mergerdays)
+readline("Press <Enter> to continue:")
+normcheck (mergerdays)
+readline("Press <Enter> to continue:")
 trans.mergerdays<-log(mergerdays)
-layout.20x(1,2)
+readline("Press <Enter> to continue:")
+layout20x(1,2)
+readline("Press <Enter> to continue:")
 boxplot(trans.mergerdays,main="Boxplot Transformed Merger Days")
+readline("Press <Enter> to continue:")
 qqnorm(trans.mergerdays)
+readline("Press <Enter> to continue:")
 abline(mean(trans.mergerdays),sd(trans.mergerdays))
+readline("Press <Enter> to continue:")
 shapiro.test(trans.mergerdays)
+readline("Press <Enter> to continue:")
 t.test(trans.mergerdays)
+readline("Press <Enter> to continue:")
 c.i.<-t.test(trans.mergerdays)$conf.int
+readline("Press <Enter> to continue:")
 c.i.
+readline("Press <Enter> to continue:")
 exp(c.i.)
-layout.20x(1,1)
-
+readline("Press <Enter> to continue:")
+layout20x(1,1)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-

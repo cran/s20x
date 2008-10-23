@@ -85,7 +85,7 @@ eovcheck.formula<-function(object, data = NULL, xlab = NULL, col = NULL,
 
         if (num.factors == 2) {
             fac2 <- as.factor(m[, 3])
-            fac1 <- factor(interaction.20x(fac1, fac2))
+            fac1 <- factor(crossFactors(fac1, fac2))
         }
 
         fit<-lm(x~fac1)

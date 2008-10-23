@@ -14,7 +14,7 @@ levene.test <- function (formula, data, digit = 5, show.table = TRUE)
     fac1<-m[,2]
     if (ncol(m)==3){
     	fac2<-m[,3]
-    	fac1<-factor(interaction.20x(fac1,fac2))
+    	fac1<-factor(crossFactors(fac1,fac2))
     	fit<-lm(x~fac1) }
     else
        fit<-lm(x~factor(fac1))

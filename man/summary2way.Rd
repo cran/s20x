@@ -1,6 +1,5 @@
 \name{summary2way}
 \alias{summary2way}
-\alias{summary.2way}
 \title{Two-way Analysis of Variance Summary}
 \usage{summary2way(fit, page = "table", digit = 5, conf.level = 0.95, print.out = TRUE, \dots)
 }
@@ -21,8 +20,6 @@
      page = "effects"       table of effects
      page = "interaction"   tables of contrasts
      page = "nointeraction" tables of contrasts
-
-Note that the "summary.2way" function is deprecated. Will be obsolete as of December 2008. It is recommended that you use summary2way instead.
 }
 
 \seealso{
@@ -47,6 +44,7 @@ summary2way(fit)
 detach(arousal.df)
 }
 \keyword{models}
+
 
 
 

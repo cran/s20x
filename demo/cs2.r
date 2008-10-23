@@ -1,20 +1,24 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
+readline("Press <Enter> to continue:")
 data (incomes.df)
+readline("Press <Enter> to continue:")
 attach(incomes.df)
+readline("Press <Enter> to continue:")
 incomes
-layout.20x(1,2)
+readline("Press <Enter> to continue:")
+layout20x(1,2)
+readline("Press <Enter> to continue:")
 hist(incomes)
+readline("Press <Enter> to continue:")
 boxplot(incomes,main="Boxplot of Incomes")
-numerical.summary(incomes)
+readline("Press <Enter> to continue:")
+summaryStats(incomes)
+readline("Press <Enter> to continue:")
 t.test(incomes)
-layout.20x(1,1)
-
+readline("Press <Enter> to continue:")
+layout20x(1,1)
+readline("Press <Enter> to continue:")
 detach(incomes.df)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-
-

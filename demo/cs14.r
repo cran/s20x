@@ -1,26 +1,34 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
+readline("Press <Enter> to continue:")
 data (arousal.df)
+readline("Press <Enter> to continue:")
 attach(arousal.df)
+readline("Press <Enter> to continue:")
 arousal.df
-interaction.plots(arousal~picture+gender)
-interaction.plots(arousal~gender+picture)
-levene.test(arousal~gender+picture)
+readline("Press <Enter> to continue:")
+interactionPlots(arousal~picture+gender)
+readline("Press <Enter> to continue:")
+interactionPlots(arousal~gender+picture)
+readline("Press <Enter> to continue:")
 arousal.fit<-lm(arousal~gender+picture+gender*picture)
-plot(arousal.fit,which=2)
-shapiro.test(residuals(arousal.fit))
-summary.2way(arousal.fit,page="table")
-summary.2way(arousal.fit,page="interaction")
-
-gender.picture<-interaction.20x(gender,picture)
+readline("Press <Enter> to continue:")
+eovcheck (arousal.fit)
+readline("Press <Enter> to continue:")
+normcheck (arousal.fit)
+readline("Press <Enter> to continue:")
+summary2way(arousal.fit,page="table")
+readline("Press <Enter> to continue:")
+summary2way(arousal.fit,page="interaction")
+readline("Press <Enter> to continue:")
+gender.picture<-crossFactors(gender,picture)
+readline("Press <Enter> to continue:")
 gender.picture<-factor(gender.picture)
+readline("Press <Enter> to continue:")
 arousal.1way.fit<-lm(arousal~gender.picture)
-summary.1way(arousal.1way.fit)
-multiple.comp(arousal.1way.fit)
-
+readline("Press <Enter> to continue:")
+summary1way(arousal.1way.fit)
+readline("Press <Enter> to continue:")
+multipleComp(arousal.1way.fit)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-

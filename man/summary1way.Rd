@@ -1,6 +1,5 @@
 \name{summary1way}
 \alias{summary1way}
-\alias{summary.1way}
 \title{One-way Analysis of Variance Summary}
 \usage{
 summary1way(fit, digit = 5, conf.level = 0.95, inttype = "tukey",
@@ -23,10 +22,7 @@ summary1way(fit, digit = 5, conf.level = 0.95, inttype = "tukey",
 Displays summary information for a one-way anova
 analysis. The lm object must come from a numerical response variable
 and a single factor. The output includes: (i) anova table; (ii) numeric
-summary; (iii) table of effects; (iv) plot of data with intervals.
-
-Note that the "summary.1way" function is deprecated. Will be obsolete as of December 2008. It is recommended that you use summary1way instead.
-}
+summary; (iii) table of effects; (iv) plot of data with intervals.}
 
 \value{
   \item{Df}{degrees of freedom for regression, residual and total.}
@@ -53,6 +49,7 @@ result
 }
 
 \keyword{models}
+
 
 
 

@@ -1,17 +1,18 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
+readline("Press <Enter> to continue:")
 data (course.df)
-
+readline("Press <Enter> to continue:")
 attach(course.df)
+readline("Press <Enter> to continue:")
 diffs<-Assign-Test
+readline("Press <Enter> to continue:")
 stripchart(diffs,pch=1,method="stack",main="Assignment score - Test score",xlab="differences")
-numerical.summary(diffs)
+readline("Press <Enter> to continue:")
+summaryStats(diffs)
+readline("Press <Enter> to continue:")
 t.test(Assign,Test,paired=T)
-
+readline("Press <Enter> to continue:")
 detach(course.df)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-

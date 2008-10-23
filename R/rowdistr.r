@@ -5,7 +5,7 @@ rowdistr<-function (crosstablist, comp = "basic", conf.level = 0.95){
     colrect <- rowcol
     labs <- "vert"
     if (!is.matrix(crosstablist) && (class(crosstablist) != "ct.20x"))
-        stop("check form of crosstablist: input list must be output from crosstabs.20x or a list of similar form")
+        stop("check form of crosstablist: input list must be output from crosstabs or a list of similar form")
     if (is.matrix(crosstablist) & !is.list(crosstablist)) {
         crosstablist <- list(row.props = sweep(crosstablist,
                              1, apply(crosstablist, 1, sum), "/"), col.props = sweep(crosstablist,

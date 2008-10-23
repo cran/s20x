@@ -1,6 +1,5 @@
 \name{predict20x}
 \alias{predict20x}
-\alias{predict.20x}
 \title{Model Predictions for a Linear Model}
 \usage{
 predict20x(object, newdata, cilevel = 0.95, digit = 3, print.out = TRUE,
@@ -19,10 +18,7 @@ predict20x(object, newdata, cilevel = 0.95, digit = 3, print.out = TRUE,
  function "predict" but gives you more output. (Error messages are not
  reliable when used in Splus.)
 
-Note: The data frame, newdata, must have the same column order and data types (e.g. numeric or factor) as those used in fitting the model.
-
-Also note that the "predict.20x" function is deprecated. Will be obsolete as of December 2008. It is recommended that you use predict20x instead.
-}
+Note: The data frame, newdata, must have the same column order and data types (e.g. numeric or factor) as those used in fitting the model.}
 
 \value{
   \item{frame}{vector or matrix including predicted values, confidence
@@ -55,6 +51,7 @@ detach(peru.df)
 }
 
 \keyword{htest}
+
 
 
 

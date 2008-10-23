@@ -1,26 +1,36 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
+readline("Press <Enter> to continue:")
 data (toothpaste.df)
+readline("Press <Enter> to continue:")
 attach(toothpaste.df)
+readline("Press <Enter> to continue:")
 toothpaste.df
+readline("Press <Enter> to continue:")
 ages<-c(purchasers,nonpurchasers)
+readline("Press <Enter> to continue:")
 buy<-rep(c("Yes","No"),c(20,20))
+readline("Press <Enter> to continue:")
 buy<-factor(buy)
-layout.20x(1,2)
+readline("Press <Enter> to continue:")
+layout20x(1,2)
+readline("Press <Enter> to continue:")
 boxplot(ages~buy,main="Boxplots for Crest")
+readline("Press <Enter> to continue:")
 stripchart(ages~buy,vert=T,pch=1,main="Stripchart for Crest")
-numerical.summary(ages~buy)
-numerical.summary(purchasers)
-numerical.summary(nonpurchasers)
+readline("Press <Enter> to continue:")
+summaryStats(ages~buy)
+readline("Press <Enter> to continue:")
+summaryStats(purchasers)
+readline("Press <Enter> to continue:")
+summaryStats(nonpurchasers)
+readline("Press <Enter> to continue:")
 t.test(purchasers,nonpurchasers)
+readline("Press <Enter> to continue:")
 t.test(purchasers,nonpurchasers,conf.level=0.9)
-layout.20x(1,1)
-
+readline("Press <Enter> to continue:")
+layout20x(1,1)
+readline("Press <Enter> to continue:")
 detach(toothpaste.df)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-
-

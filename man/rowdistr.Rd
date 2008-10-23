@@ -3,7 +3,7 @@
 \title{Row distributions from a cross-tabulation of two variables}
 \usage{rowdistr(crosstablist, comp="basic", conf.level=0.95)}
 \arguments{
-\item{crosstablist}{a list produced by "crosstabs.20x" or a matrix containing a 2-way table of counts (without marginal totals).}
+\item{crosstablist}{a list produced by "crosstabs" or a matrix containing a 2-way table of counts (without marginal totals).}
 \item{comp}{three options: "basic" (default), "within", and "between".}
 \item{conf.level}{confidence level of the intervals.}
 }
@@ -19,12 +19,12 @@ If comp="between" the resulting output displays how the probability of falling i
 If comp="within" the resulting output shows the extent to which the component probabilities of the same row distribution differ. Separate Chi-square tests for uniformity are produced for each row distribution as are confidence intervals for differences in proportions within the same distribution.
 }
 
-\seealso{"coldistr", "crosstabs.20x", "thermoms".}
+\seealso{"coldistr", "crosstabs", "thermoms".}
 
 \examples{
 data(bodim.df)
 attach(bodim.df)
-z <- crosstabs.20x(~ ethnicity + married)
+z <- crosstabs(~ ethnicity + married)
 rowdistr(z)
 rowdistr(z, comp="between")
 rowdistr(z, comp="within")

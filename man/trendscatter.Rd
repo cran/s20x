@@ -28,7 +28,7 @@ Plots a scatter plot for the variables x, y along with a lowess smooth for the u
 error bounds for the scatter about this trend are also plotted.
 }
 \value{Returns the plot.}
-\seealso{"resid.plot"}
+\seealso{"residPlot"}
 
 \examples{
 # A simple polynomial

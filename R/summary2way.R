@@ -23,7 +23,7 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
     y <- fit$model[, 1]
     f1 <- factor(fit$model[, 2])
     f2 <- factor(fit$model[, 3])
-    f1f2 <- as.factor(interaction.20x(f1, f2))
+    f1f2 <- as.factor(crossFactors(f1, f2))
     nlevf1 <- length(unique(f1))
     nlevf2 <- length(unique(f2))
     if (inter) 
@@ -48,7 +48,7 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
     n1 <- length(group1)
     n2 <- length(group2)
     if (inter) {
-        f <- factor(interaction.20x(f1, f2))
+        f <- factor(crossFactors(f1, f2))
         group3 <- split(y, f)
         n3 <- length(group3)
         group <- c(group1, group2, group3)
@@ -198,7 +198,7 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
         row.names(contrast.matrix1) <- names
         fit.1way <- lm(y ~ f1f2)
         L <- (nlevf1 * nlevf2/2) * (1 + nlevf1)
-        contrasts1 <- estimate.contrasts(as.matrix(contrast.matrix1), 
+        contrasts1 <- estimateContrasts(as.matrix(contrast.matrix1), 
             fit.1way, alpha=1-conf.level,row = TRUE, L)
         print(contrasts1, quote = FALSE)
         cat(paste("\n\nComparisons between ", f1.name, ":\n\n", 
@@ -221,7 +221,7 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
             }
         }
         row.names(contrast.matrix2) <- names
-        contrasts2 <- estimate.contrasts(as.matrix(contrast.matrix2), 
+        contrasts2 <- estimateContrasts(as.matrix(contrast.matrix2), 
             fit.1way, alpha=1-conf.level,row = TRUE,L)
         print(contrasts2, quote = FALSE)
     }
@@ -242,7 +242,7 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
         }
         row.names(contrast.matrix1) <- names
         contrast.matrix1 <- as.matrix(contrast.matrix1)
-        contrasts1 <- estimate.contrasts(contrast.matrix1, fit, alpha=1-conf.level,
+        contrasts1 <- estimateContrasts(contrast.matrix1, fit, alpha=1-conf.level,
             row = TRUE)
         print(contrasts1, quote = FALSE)
         cat(paste("\n\n", f2.name, " comparisons:\n\n", sep = ""))
@@ -262,7 +262,7 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
 
         row.names(contrast.matrix2) <- names
         contrast.matrix2 <- as.matrix(contrast.matrix2)
-        contrasts2 <- estimate.contrasts(contrast.matrix2, fit, alpha=1-conf.level,
+        contrasts2 <- estimateContrasts(contrast.matrix2, fit, alpha=1-conf.level,
             row = FALSE)
          
      

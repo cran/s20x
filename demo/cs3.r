@@ -1,16 +1,16 @@
+readline("Press <Enter> to continue:")
 opar = par (ask = dev.interactive (orNone = TRUE) )
-
+readline("Press <Enter> to continue:")
 data (course.df)
+readline("Press <Enter> to continue:")
 attach(course.df)
+readline("Press <Enter> to continue:")
 stripchart(Exam~Attend,pch=1,method="stack", ylab="regularly attend",xlab="exam mark",main="Exam by Attend")
-numerical.summary(Exam~Attend)
+readline("Press <Enter> to continue:")
+summaryStats(Exam~Attend)
+readline("Press <Enter> to continue:")
 t.test(Exam~Attend)
-
+readline("Press <Enter> to continue:")
 detach(course.df)
+readline("Press <Enter> to continue:")
 par (opar)
-
-
-
-
-
-
