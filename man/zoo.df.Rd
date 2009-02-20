@@ -19,13 +19,3 @@ A data frame with 440 observations on 6 variables.
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-
-
-
-

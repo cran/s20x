@@ -178,4 +178,3 @@ rowdistr<-function (crosstablist, comp = "basic", conf.level = 0.95){
 
 }
 
-

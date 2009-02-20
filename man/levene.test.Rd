@@ -31,6 +31,3 @@ levene.test(score ~ factor(selfassess), computer.df)
 
 \keyword{htest}
 
-
-
-

@@ -23,5 +23,3 @@ detach(course.df)
 
 \keyword{device}
 
-
-

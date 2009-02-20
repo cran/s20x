@@ -277,8 +277,3 @@ summary2way<-function (fit, page = "table", digit = 5, conf.level = 0.95, print.
 
 }
 
-
-
-
-
-

@@ -16,14 +16,3 @@ A data frame with 30 observations on 3 variables.
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-
-
-
-
-

@@ -14,18 +14,14 @@ A data frame with 100 observations on 3 variables.
 [,3] \tab Age \tab factor \tab Age group (2yo, mature)
 }
 }
-\source{
-The data was taken from:
+\source{A Handbook of Small Data Sets}
+\references{
+  Hand, D.J., Daly, F., Lunn, A.D., McConway, K.J. \& Ostrowski, E. (1994). \emph{A Handbook of Small Data Sets}. Boca Raton, Florida: Chapman and Hall/CRC.
 
-Hand, D.J., Daly, F., Lunn, A.D., McConway, K.J. \& Ostrowski, E. (1994). \textit {A Handbook of Small Data Sets}. Boca Raton, Florida: Chapman and Hall/CRC.
-
-Original source:
-
-Sokal, R.R. \& Rohlf, F.J. (1981). \textit {Biometry}, 2nd edition. San Francisco: W.H. Freeman, 368.
+Sokal, R.R. \& Rohlf, F.J. (1981). \emph{Biometry}, 2nd edition. San
+Francisco: W.H. Freeman, 368.
 }
+
 \keyword{datasets}
-
-
-
 
 

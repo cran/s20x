@@ -25,6 +25,3 @@ detach(arousal.df)
 
 \keyword{models}
 
-
-
-

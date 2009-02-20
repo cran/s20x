@@ -40,18 +40,18 @@ eovcheck(object, \dots)
 
 \examples{
 # one way ANOVA - oysters
-data(oyster.df)
-oyster.fit<-lm(Oysters~Site, data = oyster.df)
+data(oysters.df)
+oyster.fit<-lm(Oysters~Site, data = oysters.df)
 eovcheck(oyster.fit)
 
 # Same model as the previous example, but using eovcheck.formula
-data(oyster.df)
-eovcheck(Oysters~Site, data = oyster.df)
+data(oysters.df)
+eovcheck(Oysters~Site, data = oysters.df)
 
 
 # A two-way model without interaction
-data(soya.df)
-soya.fit<-lm(yield~planttime+cultivar, data = soya.df)
+data(soyabean.df)
+soya.fit<-lm(yield~planttime+cultivar, data = soyabean.df)
 eovcheck(soya.fit)
 
 # A two-way model with interaction
@@ -74,15 +74,4 @@ airpass.fit<-lm(log(passengers)[-1]~t[-1]+month[-1]+log(passengers)[-144], data 
 eovcheck(airpass.fit)
 }
 \keyword{hplot}
-
-
-
-
-
-
-
-
-
-
-
 

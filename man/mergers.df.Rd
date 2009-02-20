@@ -8,11 +8,3 @@ A random selection of 38 consummated mergers from the USA, 1982, giving the numb
 \usage{data (mergers.df)}
 \keyword{datasets}
 
-
-
-
-
-
-
-
-

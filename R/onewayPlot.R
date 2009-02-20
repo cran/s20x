@@ -89,4 +89,3 @@ onewayPlot <- function(formula, conf.level = 0.95, interval.type = "tukey",
 	}
 }
 
-

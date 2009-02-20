@@ -39,5 +39,3 @@ summaryStats.formula<-function(x, data = NULL, data.order = TRUE, digits = 2, ..
   summaryStats(vars[[1]], vars[[2]], data.order = data.order, digits = digits)
 }
 
-
-

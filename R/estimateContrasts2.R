@@ -50,5 +50,3 @@ estimateContrasts2 <- function (contrast.matrix, fit, alpha = 0.05, row = TRUE,L
 	outmat
 }
 
-
-

@@ -23,5 +23,3 @@ detach(computer.df)
 
 \keyword{htest}
 
-
-

@@ -1,11 +1,11 @@
-\name{cloudseeding.df}
+\name{rain.df}
 \docType{data}
-\alias{cloudseeding.df}
+\alias{rain.df}
 \title{Cloud Seeding and Levels of Rainfall}
 \description{
 Data from an experiment to see if seeding clouds with Silver Nitrate effects the amount of rainfall.
 }
-\usage{data (cloudseeding.df)}
+\usage{data (rain.df)}
 \format{
 A data frame with 50 observations on 2 variables.
 \tabular{rlll}{
@@ -17,13 +17,4 @@ A data frame with 50 observations on 2 variables.
 Chambers, Cleveland, Kleiner, Tukey. (1983). Graphical Methods for Data Analysis.
 }
 \keyword{datasets}
-
-
-
-
-
-
-
-
-
 

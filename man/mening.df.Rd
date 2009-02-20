@@ -11,9 +11,3 @@ A data frame with 144 observations on 3 variables: Month, Year and mening.
 }
 \keyword{datasets}
 
-
-
-
-
-
-

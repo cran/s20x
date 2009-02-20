@@ -31,9 +31,10 @@
 \item{Sum of Sq}{sum squares for regression, residual and total.}
 \item{Mean Sq}{mean squares for regression and residual.}
 \item{F value}{F-statistic value.}
-\item{Pr(F)}
-\item{Main Effect}
-\item{Group Effects}}
+\item{Pr(F)}{}
+\item{Main Effect}{}
+\item{Group Effects}{}
+}
 
 \examples{
 ##Arousal data:
@@ -44,10 +45,5 @@ summary2way(fit)
 detach(arousal.df)
 }
 \keyword{models}
-
-
-
-
-
 
 

@@ -27,5 +27,3 @@ function (fit, conf.level = 0.95)
 
 }
 
-
-

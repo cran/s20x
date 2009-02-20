@@ -47,4 +47,3 @@ invisible(structure(list(row.props = row.props, col.props = col.props, whole.pro
          Totals = tab.tot,exp=E,chi=chi), class="ct.20x"))
 }
 
-

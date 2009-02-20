@@ -13,20 +13,13 @@ A data frame with 75 observations on 2 variables.
 [,2] \tab strain  \tab factor \tab Strain of fruitfly (NS, RS, SS)
 }
 }
-\source{
-The data was taken from:
+\source{A Handbook of Small Data Sets}
+\references{
+Hand, D.J., Daly, F., Lunn, A.D., McConway, K.J. \& Ostrowski, E. (1994). \emph{A Handbook of Small Data Sets}. Boca Raton, Florida: Chapman and Hall/CRC.
 
-Hand, D.J., Daly, F., Lunn, A.D., McConway, K.J. \& Ostrowski, E. (1994). \textit {A Handbook of Small Data Sets}. Boca Raton, Florida: Chapman and Hall/CRC.
-
-Original source:
-
-Sokal, R.R. \& Rohlf, F.J. (1981). \textit {Biometry}, 2nd edition. San Francisco: W.H. Freeman, 239.
+Sokal, R.R. \& Rohlf, F.J. (1981). \emph{Biometry}, 2nd edition. San Francisco: W.H. Freeman, 239.
 }
 
 \keyword{datasets}
-
-
-
-
 
 

@@ -11,9 +11,9 @@
  determines the fruit characteristics. Rootstocks propagated by
  cuttings (i.e. asexually produced) were once thought to result in
  smaller trees than those propagated from seeds (i.e. sexually
- produced). This hypopthesis was re-examined in an experiment begun in
+ produced). This hypothesis was re-examined in an experiment begun in
  1918. Several trees of each type of 16 types of rootstock were
- plnated, all trees having the same scion. Rootstocks I-IX were
+ planted, all trees having the same scion. Rootstocks I-IX were
  asexually produced, while X-XVI were sexually produced. In the winter
  of 1933-4 a number of trees were removed to make room for more, and
  the data presented here consists of the above ground weights of 104
@@ -25,24 +25,12 @@
 }
 \usage{data (apples.df)}
 \format{
-The data consist of a data frame with 104 observations on 2
- variables.
+The data consist of a data frame with 104 observations on 3 variables.
 \tabular{rlll}{
-[,1] \tab Rootstock \tab factor \tab levels (I, II, III, IV, IX, V, VI, VII, X, XII, XIII, XV, XVI)\cr
-[,2] \tab Weight  \tab integer \tab 
+[,1] \tab Rootstock \tab factor \tab levels (I, II, III, IV, IX, V, VI, VII, X, XII, XIII, XV, XVI) \cr
+[,2] \tab Weight \tab integer \tab . \cr
+[,3] \tab Propagated \tab factor \tab levels (cutting, seed)
 }
 }
 \keyword{datasets}
-
-
-
-
-
-
-
-
-
-
-
-
 

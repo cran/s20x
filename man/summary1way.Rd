@@ -29,9 +29,9 @@ summary; (iii) table of effects; (iv) plot of data with intervals.}
   \item{Sum of Sq}{sum squares for regression, residual and total.}
   \item{Mean Sq}{mean squares for regression and residual.}
   \item{F value}{F-statistic value.}
-  \item{Pr(F)}
-  \item{Main Effect}
-  \item{Group Effects}
+  \item{Pr(F)}{}
+  \item{Main Effect}{}
+  \item{Group Effects}{}
 }
 
 \seealso{
@@ -49,10 +49,5 @@ result
 }
 
 \keyword{models}
-
-
-
-
-
 
 

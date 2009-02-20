@@ -47,8 +47,3 @@ predict20x<-function(object,newdata,cilevel = 0.95, digit = 3,
         residual.scale = pred$residual.scale, df = pred$df, cilevel = cilevel))
 }
 
-
-
-
-
-

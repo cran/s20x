@@ -28,15 +28,3 @@ Data from a summer school Stats 20x course. Each observation represents a single
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-
-
-
-
-
-

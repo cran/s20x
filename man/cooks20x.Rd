@@ -21,5 +21,3 @@ detach(peru.df)
 
 \keyword{hplot}
 
-
-

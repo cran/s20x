@@ -8,10 +8,3 @@ Random sample of 152 families giving their mean income (\$000s). The sample was 
 \usage{data(incomes.df)}
 \keyword{datasets}
 
-
-
-
-
-
-
-

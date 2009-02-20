@@ -151,5 +151,3 @@ interactionPlots.formula<-function(y, data = NULL, xlab = NULL, xlab2 = NULL, yl
                     xlen = xlen, ylen = ylen) 
 }
 
-
-

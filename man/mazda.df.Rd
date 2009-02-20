@@ -13,13 +13,5 @@ A data frame with 124 observations on 2 variables.
 [,2] \tab year  \tab numeric \tab Year of manufacture
 }
 }
-\source{todo}
 \keyword{datasets}
-
-
-
-
-
-
-
 

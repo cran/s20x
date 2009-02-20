@@ -52,10 +52,3 @@ detach(peru.df)
 
 \keyword{htest}
 
-
-
-
-
-
-
-

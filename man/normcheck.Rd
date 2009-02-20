@@ -49,14 +49,3 @@ normcheck(lm(BP~weight, data=peru.df))
 
 \keyword{hplot}
 
-
-
-
-
-
-
-
-
-
-
-

@@ -37,11 +37,3 @@ detach(computer.df)
 }
 \keyword{models}
 
-
-
-
-
-
-
-
-

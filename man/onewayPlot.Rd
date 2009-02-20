@@ -39,5 +39,3 @@ detach(computer.df)
 
 \keyword{hplot}
 
-
-

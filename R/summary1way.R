@@ -72,10 +72,3 @@ summary1way <- function (fit, digit = 5, conf.level = 0.95, inttype = "tukey", p
         "Main Effect" = grandmn, "Group Effects" = grpeffs))
 }
 
-
-
-
-
-
-
-

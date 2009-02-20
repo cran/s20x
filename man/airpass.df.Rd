@@ -11,8 +11,3 @@ A time series with 144 observations.
 }
 \keyword{datasets}
 
-
-
-
-
-

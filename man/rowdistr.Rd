@@ -22,18 +22,17 @@ If comp="within" the resulting output shows the extent to which the component pr
 \seealso{"coldistr", "crosstabs", "thermoms".}
 
 \examples{
-data(bodim.df)
-attach(bodim.df)
+data(body.df)
+attach(body.df)
 z <- crosstabs(~ ethnicity + married)
 rowdistr(z)
 rowdistr(z, comp="between")
 rowdistr(z, comp="within")
-detach(bodim.df)
+detach(body.df)
 
 ##from matrix of counts
 z <- matrix(c(4,3,2,6,47,20,40,62,11,8,7,22,3,0,1,10), 4, 4)
 rowdistr(z)}
 
 \keyword{htest}
-
 

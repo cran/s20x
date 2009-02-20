@@ -37,6 +37,3 @@ trendscatter.formula<-function (x, f = 0.5, data = NULL, xlab = NULL, ylab = NUL
 	trendscatter (vars [[2]], vars [[1]], f = f, xlab = xlab, ylab = ylab)
 }
 
-
-
-

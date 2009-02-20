@@ -20,4 +20,3 @@ ciReg <- function (fit, conf.level =0.95, print.out=TRUE)
         print(round(ci, 5))}
 }
 
-

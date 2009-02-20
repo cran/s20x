@@ -26,12 +26,12 @@ summaryStats(x, \dots)
   displayed for each group separately.}
 
 \value{Returns a matrix containing the following components:
-\item{Minimum value}
-\item{Maximum value}
+\item{Minimum value}{}
+\item{Maximum value}{}
 \item{Mean value}{the average value.}
 \item{Median}{the middle value when the batch is ordered.}
-\item{Upper quartile}
-\item{Lower quartile}
+\item{Upper quartile}{}
+\item{Lower quartile}{}
 \item{Variance}{the average of the squares of the deviations of the data values from the sample mean.}
 \item{Standard deviation}{the square root of the variance.}
 \item{Midspread (IQR)}{the range spanned by central half of data; the
@@ -39,7 +39,8 @@ summaryStats(x, \dots)
 \item{Skewness}{indicates how skewed the data set is. Positive values indicate right-skew data.}
 \item{Symmetry statistic(alpha=0.05)}{another symmetry measure, values close to 0.5 correspond to reasonably symmetric data.}
 \item{Symmetry statistic(alpha=0.10)}{alpha by default.}
-\item{Number of data values}{size of the data set.}}
+\item{Number of data values}{size of the data set.}
+}
 
 \examples{
 ## STATS20x data:
@@ -57,14 +58,5 @@ detach(course.df)
 }
 
 \keyword{multivariate}
-
-
-
-
-
-
-
-
-
 
 

@@ -51,6 +51,3 @@ normcheck.lm<-function(x, xlab = NULL, col = NULL, ... )
 	normcheck (x, xlab = xlab, col = col, ...)
 }
 
-
-
-

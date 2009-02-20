@@ -16,12 +16,3 @@ A data frame with 88 observations on 3 variables.
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-
-
-

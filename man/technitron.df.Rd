@@ -21,13 +21,3 @@ A data frame with 46 observations on 8 variables.
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-
-
-
-

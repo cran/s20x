@@ -66,11 +66,3 @@ detach(mtcars)
 
 \keyword{hplot}
 
-
-
-
-
-
-
-
-

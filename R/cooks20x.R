@@ -9,4 +9,3 @@ function (lmfit)
     text(show.r, y[show.r] + 0.4 * 0.75 * strheight(" "), show.r)
 }
 
-

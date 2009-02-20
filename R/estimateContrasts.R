@@ -7,5 +7,3 @@ estimateContrasts <- function (contrast.matrix, fit, row = TRUE, alpha = 0.05,L=
 	else estimateContrasts2(contrast.matrix, fit, alpha = alpha, row,L)
 }
 
-
-

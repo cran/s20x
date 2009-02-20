@@ -143,6 +143,3 @@ eovcheck.lm<-function(object, smoother = FALSE, twosd = FALSE,...){
                      twosd = twosd, ...)
 }
 
-
-
-

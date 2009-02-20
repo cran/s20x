@@ -4,4 +4,3 @@ rr <- function()
 read.table(file.choose(),header=TRUE)
 }
 
-

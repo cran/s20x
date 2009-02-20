@@ -8,11 +8,9 @@
 A data frame with 100 observations on 3 variables.
 \tabular{rlll}{
 [,1] \tab Weight \tab integer \tab . \cr
-[,2] \tab Copper  \tab factor (coded as integer) \tab levels (0, 1) \cr
-[,3] \tab Cobalt  \tab factor (coded as integer) \tab levels (0, 1)
+[,2] \tab Copper \tab factor \tab levels (No, Yes) \cr
+[,3] \tab Cobalt \tab factor \tab levels (No, Yes)
 }
 }
 \keyword{datasets}
-
-
 

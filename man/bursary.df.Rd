@@ -15,10 +15,3 @@ A data frame with 75 observations on 2 variables.
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-

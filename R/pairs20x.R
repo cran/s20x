@@ -24,9 +24,3 @@ pairs20x <- function(x, ...)
               diag.panel=panel.hist, ...)
 }
 
-
-
-
-
-
-

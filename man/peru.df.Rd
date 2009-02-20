@@ -18,10 +18,3 @@ A data frame with 39 observations on 5 variables.
 }
 \keyword{datasets}
 
-
-
-
-
-
-
-

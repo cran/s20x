@@ -26,4 +26,3 @@ detach(zoo.df)
 
 \keyword{hplot}
 
-

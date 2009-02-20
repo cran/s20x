@@ -40,4 +40,3 @@ function (lmfit, f = 0.5)
 
 }
 
-

@@ -19,14 +19,9 @@ internally as factors.}
 
 \examples{
 ##body image data:
-data(bodim.df)
-crosstabs(~ ethnicity + married, bodim.df)
+data(body.df)
+crosstabs(~ ethnicity + married, body.df)
 }
 
 \keyword{htest}
-
-
-
-
-
 
