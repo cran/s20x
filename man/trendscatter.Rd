@@ -47,9 +47,7 @@ data(peru.df)
 trendscatter(BP~weight, data=peru.df)
 
 # Note: this usage is deprecated
-attach(peru.df)
-trendscatter(weight,BP)
-detach(peru.df)
+with(peru.df,trendscatter(weight,BP))
 }
 
 \keyword{hplot}

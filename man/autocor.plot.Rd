@@ -12,11 +12,9 @@
 
 \examples{
 data(airpass.df)
-attach(airpass.df)
 time<-1:144
-airpass.fit<-lm(passengers~time)
+airpass.fit<-lm(passengers~time, data = airpass.df)
 autocor.plot(airpass.fit)
-detach(airpass.df)
 }
 
 \keyword{hplot}

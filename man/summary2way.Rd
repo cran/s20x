@@ -39,10 +39,8 @@
 \examples{
 ##Arousal data:
 data(arousal.df)
-attach(arousal.df)
 fit<-lm(arousal~gender+picture+gender*picture,data=arousal.df)
 summary2way(fit)
-detach(arousal.df)
 }
 \keyword{models}
 

@@ -55,18 +55,19 @@ summary1way <- function (fit, digit = 5, conf.level = 0.95, inttype = "tukey", p
         cat("\nTable of Effects: (GrandMean and deviations from GM)\n")
         print(round(effmat, digit))
     }
-    if (draw.plot)
-	{	model.data = fit$call$data
-		if (! is.null (model.data) )
-			eval (parse (text = paste ("attach(", model.data, ")") ) )
-		model.formula = formula (fit$call$formula)
-		onewayPlot (model.formula,
-			conf.level = conf.level, interval.type = inttype,
-			ylabel=attributes(fit$terms)$variables[[2]],
-			flabel = attributes(fit$terms)$variables[[3]])
-		if (! is.null (model.data) )
-			eval (parse (text = paste ("detach(", model.data, ")") ) )
-	}
+    if (draw.plot){
+        onewayPlot(fit, conf.level = conf.level, interval.type = inttype)
+	#model.data = fit$call$data
+        #if (! is.null (model.data) )
+        #    eval (parse (text = paste ("attach(", model.data, ")") ) )
+        #model.formula = formula (fit$call$formula)
+        #onewayPlot (model.formula,
+        #            conf.level = conf.level, interval.type = inttype,
+        #            ylabel=attributes(fit$terms)$variables[[2]],
+        #            flabel = attributes(fit$terms)$variables[[3]])
+        #if (! is.null (model.data) )
+        #    eval (parse (text = paste ("detach(", model.data, ")") ) )
+    }
      invisible(list(Df = a.df, "Sum of Sq" = a.ss, "Mean Sq" = a.ms,
         "F value" = alist$"F value"[1], "Pr(F)" = alist$"Pr(>F)"[1],
         "Main Effect" = grandmn, "Group Effects" = grpeffs))

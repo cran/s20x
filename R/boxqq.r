@@ -1,12 +1,25 @@
-boxqq <-
-function(x,...) 
+boxqq <-function(formula,...){
+    UseMethod("boxqq")
+}
+
+boxqq.formula<-function(formula, data = NULL, ...)
 ### Box plots and Normal Quantile Quantile plots
 {
   par("mar") -> mar
-  data <- model.frame(x)
+
+  if (missing(formula) || (length(formula) != 3))
+      stop("'formula' missing or incorrect")
+  m <- match.call(expand.dots = FALSE)
+  if (is.matrix(eval(m$data, parent.frame())))
+      m$data <- as.data.frame(data)
+
+  m[[1]] <- as.name("model.frame")
+  mf <- eval(m, parent.frame())
+  data<-mf
+
   par(mfrow=c(1,2))
   par(mar=c(5.1,4.1,4.1,0))
-  boxplot(x,xlab=names(data)[2],ylab=names(data)[1],main=paste(names(data)[1],"vs.",
+  boxplot(formula, data = data, xlab=names(data)[2],ylab=names(data)[1],main=paste(names(data)[1],"vs.",
                                                       names(data)[2]),cex=.75,col="yellow",...)
   names <- unique(data[,2])
   nv <- length(names)

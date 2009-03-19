@@ -14,11 +14,9 @@
 
 \examples{
 data(course.df)
-attach(course.df)
 layout20x(1,2)
-stripchart(Exam)
-boxplot(Exam)
-detach(course.df)
+stripchart(course.df$Exam)
+boxplot(course.df$Exam)
 }
 
 \keyword{device}

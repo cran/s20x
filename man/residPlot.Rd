@@ -22,10 +22,8 @@ quadratic relationship between the residuals and the fitted values is also compu
 \examples{
 # Peruvian Indians data
 data(peru.df)
-attach(peru.df)
-fit<-lm(BP~age+years+weight+height)
+fit<-lm(BP~age+years+weight+height, data = peru.df)
 residPlot(fit)
-detach(peru.df)
 }
 
 \keyword{hplot}

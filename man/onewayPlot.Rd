@@ -1,14 +1,22 @@
 \name{onewayPlot}
 \alias{onewayPlot}
+\alias{onewayPlot.formula}
+\alias{onewayPlot.lm}
 \title{One-way Analysis of Variance Plot}
 \usage{
-onewayPlot(formula, conf.level = 0.95, interval.type = "tukey",
-            pooled = TRUE, strip = TRUE, vert = TRUE, verbose = FALSE,
-	    ylabel = deparse(terms(formula)[[2]]),
-	    flabel = deparse(terms(formula)[[3]]))
+onewayPlot(x,\dots)
+\method{onewayPlot}{formula}(formula, data = parent.frame(),
+                             conf.level = 0.95,
+                             interval.type = "tukey",
+                             pooled = TRUE, strip = TRUE, vert = TRUE,
+                             verbose = FALSE,
+                             ylabel = deparse(terms(formula)[[2]]),
+                             flabel = deparse(terms(formula)[[3]]),...)
+\method{onewayPlot}{lm}(x,...)
 }
 \arguments{
  \item{formula}{a symbolic description of the model to be fit.}
+\item{x}{either a formula or a lm object}
  \item{conf.level}{confidence level of the intervals.}
  \item{interval.type}{three options for intervals appearing on plot:
    "hsd","lsd" or "ci".}
@@ -19,7 +27,10 @@ onewayPlot(formula, conf.level = 0.95, interval.type = "tukey",
    (boxplots can only be displayed vertically).}
  \item{verbose}{if true, print intervals on console.}
  \item{ylabel}{can be used to replace variable name of y by another string.}
- \item{flabel}{can be used to replace variable name of f by another string.}
+ \item{flabel}{can be used to replace variable name of f by another
+   string.}
+ \item{data}{an optional data frame in which to evaluate the formula.}
+\item{\dots}{optional arguments.}
 }
 \description{
 Displays stripplot/boxplot of the reponse variable with intervals
@@ -32,9 +43,7 @@ Displays stripplot/boxplot of the reponse variable with intervals
 
 ##sheep data:
 data(computer.df)
-attach(computer.df)
-onewayPlot(score~selfassess)
-detach(computer.df)
+onewayPlot(score~selfassess, data = computer.df)
 }
 
 \keyword{hplot}

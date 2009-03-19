@@ -13,9 +13,7 @@
 \examples{
 ##Merger data:
 data(mergers.df)
-attach(mergers.df)
-skewness(mergerdays)
-detach(mergers.df)
+skewness(mergers.df$mergerdays)
 }
 
 \keyword{univar}

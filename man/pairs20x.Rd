@@ -7,7 +7,8 @@ pairs20x(x, ...)
 
 \arguments{
   \item{x}{a data frame.}
-  \item{\dots}{optional argumments which are passed to the generic pairs.}
+  \item{\dots}{optional argumments which are passed to the generic pairs
+  function.}
 }
 \description{Plots pairwise scatter plots with histograms and correlations for the data frame.}
 
@@ -20,9 +21,7 @@ pairs20x(x, ...)
 \examples{
 ##peruvian indians
 data(peru.df)
-attach(peru.df)
 pairs20x(peru.df)
-detach(peru.df)
 }
 
 \keyword{hplot}

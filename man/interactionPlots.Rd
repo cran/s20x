@@ -55,13 +55,12 @@ interactionPlots(y, \dots)
 \seealso{"summary2way".}
 
 \examples{
-data("mtcars")
+data(mtcars)
 interactionPlots(wt~vs+gear, mtcars)
 
 ## note this usage is deprecated
-attach(mtcars)
-interactionPlots(wt,vs,gear)
-detach(mtcars)
+data(mtcars)
+with(mtcars, interactionPlots(wt,vs,gear))
 }
 
 \keyword{hplot}

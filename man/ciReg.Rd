@@ -18,10 +18,8 @@
 \examples{
 ##Peruvian Indians data
 data(peru.df)
-attach(peru.df)
-fit<-lm(BP ~ age + years + weight + height)
+fit<-lm(BP ~ age + years + weight + height, data = peru.df)
 ciReg(fit)
-detach(peru.df)
 }
 
 \keyword{htest}

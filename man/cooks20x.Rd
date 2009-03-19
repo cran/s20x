@@ -13,10 +13,8 @@
 \examples{
 # Peruvian Indians data
 data(peru.df)
-attach(peru.df)
-fit1<-lm(BP~age+years+I(years^2)+weight+height)
+fit1<-lm(BP~age+years+I(years^2)+weight+height, data = peru.df)
 cooks20x(fit1)
-detach(peru.df)
 }
 
 \keyword{hplot}

@@ -15,10 +15,8 @@
 \examples{
 ## computer data
 data(computer.df)
-attach(computer.df)
-fit <- lm(score ~ factor(selfassess))
+fit <- lm(score ~ factor(selfassess), data = computer.df)
 multipleComp(fit)
-detach(computer.df)
 }
 
 \keyword{htest}

@@ -19,16 +19,15 @@ If comp="between" the resulting output displays how the probability of falling i
 If comp="within" the resulting output shows the extent to which the component probabilities of the same row distribution differ. Separate Chi-square tests for uniformity are produced for each row distribution as are confidence intervals for differences in proportions within the same distribution.
 }
 
-\seealso{"coldistr", "crosstabs", "thermoms".}
+\seealso{"crosstabs"}
 
 \examples{
 data(body.df)
-attach(body.df)
-z <- crosstabs(~ ethnicity + married)
+z <- crosstabs(~ ethnicity + married, data = body.df)
 rowdistr(z)
 rowdistr(z, comp="between")
 rowdistr(z, comp="within")
-detach(body.df)
+
 
 ##from matrix of counts
 z <- matrix(c(4,3,2,6,47,20,40,62,11,8,7,22,3,0,1,10), 4, 4)

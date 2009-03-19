@@ -27,13 +27,11 @@ estimateContrasts2 (contrast.matrix, fit, alpha = 0.05, row = TRUE, L)
 \examples{
 ## computer data:
 data(computer.df)
-attach(computer.df)
-selfassess <- factor(selfassess)
-computer.fit <- lm(score ~ selfassess)
+computer.df <- within(computer.df, {selfassess <- factor(selfassess)})
+computer.fit <- lm(score ~ selfassess, data = computer.df)
 contrast.matrix <- matrix(c(-1/2,-1/2,1),byrow=TRUE,nrow=1,ncol=3)
 contrast.matrix
 estimateContrasts(contrast.matrix,computer.fit)
-detach(computer.df)
 }
 \keyword{models}
 

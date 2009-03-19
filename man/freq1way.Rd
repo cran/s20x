@@ -34,10 +34,9 @@ corresponding hypothesized probabilities. )}
 \examples{
 ##Body image data:
 data(body.df)
-attach(body.df)
-freq1way(table(ethnicity))
-freq1way(table(ethnicity),hypothprob=c(0.2,0.4,0.3,0.1))
-detach(body.df)
+eth.table <- with(body.df, table(ethnicity))
+freq1way(eth.table)
+freq1way(eth.table,hypothprob=c(0.2,0.4,0.3,0.1))
 }
 
 \keyword{htest}
