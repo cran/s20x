@@ -13,17 +13,7 @@ onewayPlot.formula<-function(formula, data = parent.frame(),
     if (missing(formula) || (length(formula) != 3))
         stop("'formula' missing or incorrect")
 
-    formula
-    cl <- match.call()
-    mf <- match.call(expand.dots = FALSE)
-    m<- match(c("formula","data"), names(mf), 0L)
-    mf<- mf[c(1L, m)]
-    mf$drop.unused.levels <- TRUE
-    mf[[1]] <- as.name("model.frame")
-    mf <- eval(mf, parent.frame())
-
-    data<-mf
-
+    mf <- data
     index <- switch(interval.type, tukey=1, hsd = 2, lsd = 3, ci = 4, 0);
     if (!index)
         stop("bad interval.type argument");
@@ -32,9 +22,9 @@ onewayPlot.formula<-function(formula, data = parent.frame(),
 
     flabel <- as.character(flabel)
     ylabel <- as.character(ylabel)
-    response <- match(deparse(terms(formula)[[2]]),names(mf))
-    y <- mf[, response] #eval(terms(x)[[2]]);
-    f <- factor(mf[, -response])
+    factors <- match(deparse(terms(formula)[[3]]),names(mf))
+    y <- eval(terms(formula)[[2]], data)
+    f <- factor(data[,factors])
 
     name <- c("TUKEY intervals", "HSD intervals", "LSD intervals",
               "Confidence intervals")[index];
@@ -111,11 +101,13 @@ onewayPlot.formula<-function(formula, data = parent.frame(),
 }
 
 onewayPlot.lm<-function(x, ...){
-    cl <- match.call()
+##     cl <- match.call()
 
-    fit <- eval(cl$x, parent.frame())
-    formula <- formula(fit$call$formula)
-    data <- data.frame(fit$model)
-
-    onewayPlot.formula(formula, ..., data = data)
+##     fit <- eval(cl$x, parent.frame())
+##     formula <- formula(fit$call$formula)
+##     data <- data.frame(fit$model)
+    onewayPlot.formula(terms(x), ..., data = model.frame(x))
 }
+
+twosampPlot<-function(x,...)
+    onewayPlot(x,...)

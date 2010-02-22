@@ -1,4 +1,5 @@
 \name{onewayPlot}
+\alias{twosampPlot}
 \alias{onewayPlot}
 \alias{onewayPlot.formula}
 \alias{onewayPlot.lm}
@@ -41,10 +42,18 @@ Displays stripplot/boxplot of the reponse variable with intervals
 \examples{
 ##see example in "summary1way"
 
-##sheep data:
+##computer data:
 data(computer.df)
 onewayPlot(score~selfassess, data = computer.df)
-}
 
+
+##apple data:
+data(apples.df)
+twosampPlot(Weight~Propagated, data = apples.df)
+
+##oyster data:
+data(oysters.df)
+onewayPlot(log(Oysters)~Site, data = oysters.df)
+}
 \keyword{hplot}
 
