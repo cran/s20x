@@ -1,11 +1,21 @@
 \name{onewayPlot}
 \alias{twosampPlot}
 \alias{onewayPlot}
+\alias{onewayPlot.default}
 \alias{onewayPlot.formula}
 \alias{onewayPlot.lm}
 \title{One-way Analysis of Variance Plot}
 \usage{
 onewayPlot(x,\dots)
+\method{onewayPlot}{default}(x, f,
+                             conf.level = 0.95,
+                             interval.type = "tukey",
+                             pooled = TRUE, strip = TRUE, vert = TRUE,
+                             verbose = FALSE,
+                             ylabel = deparse(terms(formula)[[2]]),
+                             flabel = deparse(terms(formula)[[3]]),...)
+
+
 \method{onewayPlot}{formula}(formula, data = parent.frame(),
                              conf.level = 0.95,
                              interval.type = "tukey",
@@ -13,11 +23,15 @@ onewayPlot(x,\dots)
                              verbose = FALSE,
                              ylabel = deparse(terms(formula)[[2]]),
                              flabel = deparse(terms(formula)[[3]]),...)
-\method{onewayPlot}{lm}(x,...)
+
+\method{onewayPlot}{lm}(x, ..., ylabel = nms[1], flabel = nms[2])
 }
 \arguments{
  \item{formula}{a symbolic description of the model to be fit.}
-\item{x}{either a formula or a lm object}
+ \item{x}{a vector of responses, a formula object or an lm object}
+\item{f}{if x is a vector of responses then f contains the group labels
+  for each observation in x. That is, the ith value in f says which
+  group the ith observation of x belongs to.}
  \item{conf.level}{confidence level of the intervals.}
  \item{interval.type}{three options for intervals appearing on plot:
    "hsd","lsd" or "ci".}
@@ -54,6 +68,11 @@ twosampPlot(Weight~Propagated, data = apples.df)
 ##oyster data:
 data(oysters.df)
 onewayPlot(log(Oysters)~Site, data = oysters.df)
+
+##oyster data:
+data(oysters.df)
+oyster.fit = lm(log(Oysters)~Site, data = oysters.df)
+onewayPlot(oyster.fit)
 }
 \keyword{hplot}
 
