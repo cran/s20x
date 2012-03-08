@@ -1,4 +1,6 @@
-panel.hist <- function(x, ...)
+pairs20x <- function(x, ...)
+{
+    panel.hist <- function(x, ...)
      {
          usr <- par("usr"); on.exit(par(usr))
          par(usr = c(usr[1:2], 0, 1.5) )
@@ -8,7 +10,7 @@ panel.hist <- function(x, ...)
          rect(breaks[-nB], 0, breaks[-1], y, col="cyan", ...)
      }
 
-panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
+    panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
      {
          usr <- par("usr"); on.exit(par(usr))
          par(usr = c(0, 1, 0, 1))
@@ -19,8 +21,7 @@ panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
          text(0.5, 0.5, txt, cex = cex * r)
      }
 
-pairs20x <- function(x, ...)
-{	pairs(x, upper.panel=panel.smooth,lower.panel=panel.cor,
+	pairs(x, upper.panel=panel.smooth,lower.panel=panel.cor,
               diag.panel=panel.hist, ...)
 }
 

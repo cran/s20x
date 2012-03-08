@@ -45,16 +45,10 @@ summaryStats(x, \dots)
 \examples{
 ## STATS20x data:
 data(course.df)
-attach(course.df)
-summaryStats(Exam)
-detach(course.df)
+with(course.df, summaryStats(Exam))
 
 summaryStats(Exam~Stage1, course.df)
 
-## Note this usage is deprecated.
-attach(course.df)
-summaryStats(Exam,Stage1)
-detach(course.df)
 }
 
 \keyword{multivariate}

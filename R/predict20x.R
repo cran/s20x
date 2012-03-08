@@ -26,7 +26,7 @@ predict20x<-function(object,newdata,cilevel = 0.95, digit = 3,
 
         dimnames(newdata)<-list(name.row,name.col)
 
-    pred <- predict.lm(object, newdata, se = TRUE, ...)
+    pred <- predict.lm(object, newdata, se.fit = TRUE, ...)
     Predicted <- pred$fit
     percent <- 1 - (1 - cilevel)/2
     Conf.lower <- pred$fit - qt(percent, pred$df) * pred$se.fit
