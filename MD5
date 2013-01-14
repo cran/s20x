@@ -1,4 +1,4 @@
-dc54a945852c69882010ebe82a08d5c8 *DESCRIPTION
+f285a6ddf216d7c86ad88b2398e8f7d6 *DESCRIPTION
 0a6ea7f09081ffc543dbf565919d7062 *NAMESPACE
 bff9c6bde8b9deaa64cea699ec03a2ba *R/autocor.plot.R
 148bcf5634a3ef859c4a1317d424a919 *R/boxqq.r
@@ -14,7 +14,7 @@ b4a5ecf53af42ce39c3fb06acd398c39 *R/estimateContrasts1.R
 42ae6fdd0c86b253c4213beb3a9d2fdf *R/getVersion.R
 a297c63e56b2dc659f52914185cefa9e *R/interactionPlots.R
 1a65341a891cfd76f4e547778556a943 *R/layout20x.R
-c3b14b4ad9f5cd094a6ca7606f96a199 *R/levene.test.R
+873f6adaff53178ba55cd360c8b0287e *R/levene.test.R
 2b2ee9fcd0d52343a7c46a3408238b96 *R/multipleComp.R
 b69e08645ac92de705c1584ff60b10df *R/normcheck.R
 06a203e6831b57eb706184a9caf0a275 *R/onewayPlot.R

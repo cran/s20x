@@ -22,7 +22,7 @@ levene.test <- function (formula, data, digit = 5, show.table = TRUE)
     f1 <- fit$model[, 2]
     #fit the new model
     medians <- tapply(y, f1, median)
-    newy <- abs(y - medians[as.real(f1)])
+    newy <- abs(y - medians[as.double(f1)])
     newfit <- lm(newy ~ f1)
     #calculate the ANOVA table
     alist <- anova(newfit)
