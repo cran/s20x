@@ -6,8 +6,8 @@
 \usage{
 eovcheck(object, \dots)
 \method{eovcheck}{formula} (object, data = NULL, xlab = NULL, col = NULL
-                            ,smoother = FALSE, twosd = FALSE,  \dots)
-\method{eovcheck}{lm} (object, smoother = FALSE, twosd = FALSE, \dots)
+                            ,smoother = FALSE, twosd = FALSE, levene = FALSE, \dots)
+\method{eovcheck}{lm} (object, smoother = FALSE, twosd = FALSE, levene = FALSE, \dots)
 }
 \arguments{
   \item{object}{A linear model formula. Alternatively, a fitted
@@ -19,6 +19,7 @@ eovcheck(object, \dots)
   \item{smoother}{if TRUE then a smoothed lowess line will be added to
     the plot}
   \item{twosd}{if TRUE then horizontal dotted lines will be drawn at +/-2sd}
+  \item{levene}{if TRUE then the P-value from Levene's test for equality of variance is displayed}
   \item{\dots}{Optional arguments}
 }
 \description{
@@ -32,7 +33,7 @@ eovcheck(object, \dots)
   Residual Mean Sqare (Within group mean square = WGMS). This can be
   useful in highlighting potential outliers. If the model
   has one or two factors and no continous variables, i.e. if it is a
-  oneway or twoway ANOVA model then the P-value from Levene's test for
+  oneway or twoway ANOVA model, and \code{levene = TRUE} then the P-value from Levene's test for
   equality variance is displayed in the top left hand corner,as long as
   the number of observations per group exceeds two.
 }
@@ -41,7 +42,7 @@ eovcheck(object, \dots)
 \examples{
 # one way ANOVA - oysters
 data(oysters.df)
-oyster.fit<-lm(Oysters~Site, data = oysters.df)
+oyster.fit = lm(Oysters~Site, data = oysters.df)
 eovcheck(oyster.fit)
 
 # Same model as the previous example, but using eovcheck.formula

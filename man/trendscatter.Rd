@@ -5,8 +5,8 @@
 \title{Trend and scatter plot}
 \usage{
 trendscatter(x, \dots)
-\method{trendscatter}{default} (x, y = NULL, f = 0.5, xlab = NULL, ylab = NULL, \dots)
-\method{trendscatter}{formula} (x, f = 0.5, data, xlab = NULL, ylab = NULL, \dots)
+\method{trendscatter}{default} (x, y = NULL, f = 0.5, xlab = NULL, ylab = NULL, main = NULL, \dots)
+\method{trendscatter}{formula} (x, f = 0.5, data, xlab = NULL, ylab = NULL, main = NULL, \dots)
 }
 \arguments{
   \item{x}{the coordinates of the points in the scatter
@@ -21,6 +21,8 @@ trendscatter(x, \dots)
  \item{xlab}{a title for the x axis: see \code{\link{title}}.}
  \item{ylab}{a title for the y axis: see
 	  \code{\link{title}}.}
+  \item{main}{a title for the plot: see
+    \code{\link{title}}.}
  \item{\dots}{Optional arguments}
 }
 \description{

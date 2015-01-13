@@ -5,22 +5,25 @@
 \title{Testing for normality plot}
 \usage{
 normcheck(x, \dots)
-\method{normcheck}{default} (x, xlab = NULL, col = NULL, \dots)
-\method{normcheck}{lm} (x, xlab = NULL, col = NULL, \dots)
+\method{normcheck}{default} (x, xlab = NULL, main = xlab, col = NULL, shapiro.wilk = FALSE, \dots)
+\method{normcheck}{lm} (x, xlab = NULL, main = xlab, col = NULL, shapiro.wilk = FALSE, \dots)
 }
 \arguments{
   \item{x}{the residuals from fitting a linear model.
     Alternatively, a fitted lm object.}
 
   \item{xlab}{a title for the x axis: see \code{\link{title}}.}
+  \item{main}{a title for the x axis: see \code{\link{title}}.}
   \item{col}{a color for the bars of the histogram.}
+  \item{shapiro.wilk}{if \code{TRUE}, then in the top left hand corner of the Q-Q plot, the P-value from the
+  Shapiro-Wilk test for normality is displayed.}
   \item{\dots}{Optional arguments}
 }
 \description{
   Plots two plots side by side. Firstly it draws a Normal QQ-plot of the
   residuals, along with a line which has an intercept at the mean of the
   residuals and a slope equal to the standard deviation of the
-  residuals. In the top left hand corner, the P-value from the
+  residuals. If \code{shapiro.wilk = TRUE} then, in the top left hand corner of the Q-Q plot, the P-value from the
   Shapiro-Wilk test for normality is given. Secondly, it draws a
   histogram of the residuals. A normal distribution is fitted and
   superimposed over the histogram.
