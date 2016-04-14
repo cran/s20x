@@ -45,4 +45,7 @@ S3method(summaryStats, matrix)
 export(trendscatter)
 S3method(trendscatter, default)
 S3method(trendscatter, formula)
+import(stats)
+import(graphics)
+importFrom(utils, packageDescription, read.table)
 
