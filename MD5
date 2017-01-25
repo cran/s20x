@@ -1,4 +1,4 @@
-c13b9ce118f6347ef8973d4396f743c9 *DESCRIPTION
+064c4aadcc448e3d826d2f4f824e9a00 *DESCRIPTION
 e8c1458438ead3c34974bc0be3a03ed6 *LICENSE
 05d460c1440eded94046f727a57260d9 *NAMESPACE
 3457a983e4c359e58263ae1669afbd36 *R/autocor.plot.R
@@ -16,7 +16,7 @@ b4a5ecf53af42ce39c3fb06acd398c39 *R/estimateContrasts1.R
 a297c63e56b2dc659f52914185cefa9e *R/interactionPlots.R
 fe928732a8c045f7e1a59850f8732c77 *R/layout20x.R
 ccc8cc0dfb488d7215d440297225ff6c *R/levene.test.R
-2b2ee9fcd0d52343a7c46a3408238b96 *R/multipleComp.R
+1c009fcd5521b47e51dd02107eb6e776 *R/multipleComp.R
 183752790a355840759eda099124ba83 *R/normcheck.R
 06a203e6831b57eb706184a9caf0a275 *R/onewayPlot.R
 04ec916d7541f71106c73b1975d2ee03 *R/pairs20x.R
@@ -24,12 +24,12 @@ ccc8cc0dfb488d7215d440297225ff6c *R/levene.test.R
 e98f6052161f3768acdec9eb00d89d3c *R/predictCount.R
 642bccea913459724da17e371da4aa8d *R/propslsd.new.R
 daa68fb388bd6e280a70912fb37e05d0 *R/residPlot.R
-3f1a4ddd22000e5ede3d02e9d537f2da *R/rowdistr.r
+f296e40dba2eebd7a0ce10a2bf4aa808 *R/rowdistr.r
 bc975d47b56463f033ddb7fc8b06fd5b *R/rr.r
 982a9015110697b14ab51bf590931e15 *R/skewness.r
 6d98df3813211bdd0a09bdf64151b394 *R/stripqq.r
 10d94d37d2f0820acf2b076d60653b78 *R/summary1way.R
-297098866d168289abaa539bf4c10eba *R/summary2way.R
+825f43dc15a3e70846d3fca0c199f430 *R/summary2way.R
 d1fa38ce2c45d3003ef75215738b3cab *R/summaryStats.R
 1c084eadb30cf2c60f0f81ab1280c769 *R/trendscatter.R
 ba81b177a3290e86f6819b6955ddca5d *data/airpass.df.txt.gz
@@ -164,7 +164,7 @@ f7684d69d735dcfbebd8c0ecf65cf1c8 *man/predict20x.Rd
 68e0c081552f144eed881adf0eda5cbe *man/propslsd.new.Rd
 179955f9f52a3111180ed7d4bc7c1f55 *man/rain.df.Rd
 94ac03e318bba92388eb0ddc62e8b606 *man/residPlot.Rd
-b27a1e5a72a5878076a5dc0a42829af1 *man/rowdistr.Rd
+b3cead1fa0540a17aee480fd673db2a4 *man/rowdistr.Rd
 5a496701ac7cd641b3f64a9c26688fb0 *man/rr.Rd
 6763959c7224610a9af3c59a4f1996df *man/seeds.df.Rd
 c4b654f1586ec3ee684e970e1e6b9a96 *man/sheep.df.Rd
@@ -173,7 +173,7 @@ da772963c32205f04b7dc9df6909b771 *man/skulls.df.Rd
 0c767543e75142ee35527d7b7b1a93f4 *man/soyabean.df.Rd
 14cb8ffc25778ad11aa027a3e7694637 *man/stripqq.Rd
 919c317a0158fb48825f4d5d5f7f97da *man/summary1way.Rd
-c9f79018d1c2439cdf71c84ceb546dbd *man/summary2way.Rd
+9fed29198a3117131218ae1bf5f4e9eb *man/summary2way.Rd
 bc440be279f6f682aa933e1a49b7c706 *man/summaryStats.Rd
 0a29a04b168bda8a62d0a7ead2ae129d *man/teach.df.Rd
 e4ad2de50145d6119eea3cb832c4ae12 *man/technitron.df.Rd
