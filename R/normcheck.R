@@ -6,16 +6,20 @@
 #' \code{shapiro.wilk = TRUE} then, in the top left hand corner of the Q-Q
 #' plot, the P-value from the Shapiro-Wilk test for normality is given.
 #' Secondly, it draws a histogram of the residuals. A normal distribution is
-#' fitted and superimposed over the histogram.
+#' fitted and superimposed over the histogram. NOTE: if you want to leave the 
+#' x-axis blank in the histogram then, use \code{xlab = c("Theoretical Quantiles", " ")}
+#' , i.e. leave a space between the quotes. If you don't leave a space, then information 
+#' will be extracted from \code{x}. 
 #' 
 #' 
 #' @param x the residuals from fitting a linear model.  Alternatively, a fitted \code{lm} object.
-#' @param xlab a title for the x axis: see \code{\link{title}}.
-#' @param main a title for the x axis: see \code{\link{title}}.
+#' @param xlab a title for the x-axis of both the Q-Q plot and the histogram: see \code{\link{title}}.
+#' @param ylab a title for the y-axis of both the Q-Q plot and the histogram: see \code{\link{title}}.
+#' @param main a title for both the Q-Q plot and the histogram: see \code{\link{title}}.
 #' @param col a color for the bars of the histogram.
 #' @param shapiro.wilk if \code{TRUE}, then in the top left hand corner of the
 #' Q-Q plot, the P-value from the Shapiro-Wilk test for normality is displayed.
-#' @param \dots Optional arguments
+#' @param \dots additional arguments which are passed to both \code{qqnorm} and \code{hist}
 #' @seealso \code{\link{shapiro.test}}.
 #' @keywords hplot
 #' @examples
@@ -45,30 +49,39 @@ normcheck = function(x, ...) {
 
 #' @export
 #' @describeIn normcheck Testing for normality plot
-normcheck.default = function(x, xlab = NULL, main = xlab, col = NULL, shapiro.wilk = FALSE, ...) {
+normcheck.default = function(x, xlab = c("Theoretical Quantiles", ""), 
+                                ylab = c("Sample Quantiles", ""),
+                                main = c("", ""), col = "light blue", 
+                                shapiro.wilk = FALSE, ...) {
     
-    if (is.null(xlab)) 
-        xlab = deparse(substitute(x))
+    if (xlab[2] == "") 
+        xlab[2] = deparse(substitute(x))
     
-    if (is.null(col)) 
-        col = "light blue"
+    col = match.arg(col, c("light blue", grDevices::colors()))
     
     ## only grab the parameters that are going to be set
-    oldPar = par(c("mfrow", "xaxs", "yaxs", "pty"))
+    oldPar = par(c("mfrow", "xaxs", "yaxs", "pty", "mai"))
     
     
     
     ## change the layout of the plotting window only if it has not already been set
     if (all(oldPar$mfrow == c(1, 1))) {
-        par(mfrow = c(1, 2), xaxs = "i", yaxs = "i", pty = "s")
+        par(mfrow = c(1, 2), xaxs = "i", yaxs = "i", pty = "s",
+            mai = c(0.1, 0.2, 0, 0.05))
         on.exit(par(mfrow = oldPar))
+    }
+    
+    qqp = qqnorm(x, axes = FALSE, xlab = "", ylab = "", main = "", ...)
+    qqline(x, col = "black")
+    box()
+    title(xlab = xlab[1], line = 0.05)
+    title(ylab = ylab[1], line = 0.05)
+    if(main[1] != ""){
+      title(main = main[1])
     }
     
     mx = mean(x)
     sx = sd(x)
-    qqp = qqnorm(x)
-    abline(c(mx, sx))
-    
     
     if (shapiro.wilk) {
         stest = shapiro.test(x)
@@ -84,7 +97,18 @@ normcheck.default = function(x, xlab = NULL, main = xlab, col = NULL, shapiro.wi
     
     ymax = max(h$density, dnorm(mx, mx, sx)) * 1.05
     
-    hist(x, prob = TRUE, ylim = c(0, ymax), xlim = c(xmin, xmax), xlab = xlab, col = col, main = main)
+    hist(x, prob = TRUE, ylim = c(0, ymax), xlim = c(xmin, xmax), col = col,
+         xlab = "", ylab = "", main = "", axes = FALSE, ...)
+    w = strwidth(xlab[2], units = "figure")
+    
+    if(w < 0.95){
+      title(xlab = xlab[2], line = 0.05)
+    }else{
+      m = 1 / (w * 1.1)
+      title(xlab = xlab[2], line = 0.05, cex.lab = m)
+    }
+    title(ylab = ylab[2], line = 0.05)
+    title(main = main[2], line = 0.05)
     box()
     
     x1 = seq(xmin, xmax, length = 100)
@@ -94,13 +118,16 @@ normcheck.default = function(x, xlab = NULL, main = xlab, col = NULL, shapiro.wi
 
 #' @export
 #' @describeIn normcheck Testing for normality plot
-normcheck.lm = function(x, xlab = NULL, main = xlab, col = NULL, shapiro.wilk = FALSE, ...) {
+normcheck.lm = function(x, xlab = c("Theoretical Quantiles", ""), 
+                           ylab = c("Sample Quantiles", ""),
+                           main = c("", ""), col = "light blue",  
+                           shapiro.wilk = FALSE, ...){
     if (missing(x) || (class(x) != "lm")) 
         stop("missing or incorrect lm object")
     
     
-    if (is.null(xlab)) 
-        xlab = paste("Residuals from lm(", as.character(x$call[2]), ")", sep = "")
+    if (xlab[2] == "") 
+        xlab[2] = paste("Residuals from lm(", as.character(x$call[2]), ")", sep = "")
     
     x = residuals(x)
     normcheck(x, xlab = xlab, main = main, col = col, shapiro.wilk = shapiro.wilk, ...)
