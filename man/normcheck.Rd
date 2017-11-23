@@ -10,11 +10,13 @@ normcheck(x, ...)
 
 \method{normcheck}{default}(x, xlab = c("Theoretical Quantiles", ""),
   ylab = c("Sample Quantiles", ""), main = c("", ""), col = "light blue",
-  shapiro.wilk = FALSE, ...)
+  bootstrap = FALSE, B = 5, bpch = 3, bcol = "lightgrey",
+  shapiro.wilk = FALSE, whichPlot = 1:2, usePar = TRUE, ...)
 
 \method{normcheck}{lm}(x, xlab = c("Theoretical Quantiles", ""),
   ylab = c("Sample Quantiles", ""), main = c("", ""), col = "light blue",
-  shapiro.wilk = FALSE, ...)
+  bootstrap = FALSE, B = 5, bpch = 3, bcol = "lightgrey",
+  shapiro.wilk = FALSE, whichPlot = 1:2, usePar = TRUE, ...)
 }
 \arguments{
 \item{x}{the residuals from fitting a linear model.  Alternatively, a fitted \code{lm} object.}
@@ -29,8 +31,31 @@ normcheck(x, ...)
 
 \item{col}{a color for the bars of the histogram.}
 
+\item{bootstrap}{if \code{TRUE} then \code{B} samples will be taken from a Normal distribution 
+with the same mean and standard deviation as \code{x}. These will be plotted in a lighter colour behind the
+empirical quantiles so that we can see how much variation we would expect in the Q-Q plot for a
+sample of the same size from a truly normal distribution.}
+
+\item{B}{the number of bootstrap samples to take. Five should be sufficient, but hey maybe you want more?}
+
+\item{bpch}{the plotting symbol used for the bootstrap samples. Legal values are the same as any legal
+value for \code{pch} as defined in \code{\link{par}}.}
+
+\item{bcol}{the plotting colour used for the bootstrap samples. Legal values are the same as any legal
+value for \code{col} as defined in \code{\link{par}}.}
+
 \item{shapiro.wilk}{if \code{TRUE}, then in the top left hand corner of the
 Q-Q plot, the P-value from the Shapiro-Wilk test for normality is displayed.}
+
+\item{whichPlot}{legal values are  \code{1}, \code{2}, and any pair of the two, i.e. \code{1:2}, \code{2:1},
+\code{c(1,2)}, \code{c(2,1)}, or even variants of \code{c(1,1)} (although I do not know why you would)
+want to do this. \code{1:2} is used by default and returns a normal Q-Q plot and a historgram of the residuals
+in that order. The order of the labels in \code{xlab} and \code{ylab} assume this order, and will be 
+reordered automatically if the order is anything other than \code{1:2}.}
+
+\item{usePar}{if \code{TRUE}, then this function will set \code{\link{par}} for the user. If \code{FALSE},
+then this function assumes \code{\link{par}} has been set by the user and therefore should not be
+be over-ridden.}
 }
 \description{
 Plots two plots side by side. Firstly it draws a Normal QQ-plot of the
