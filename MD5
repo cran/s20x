@@ -1,10 +1,10 @@
-1b661020c42ded86e97847cdf22e14b9 *DESCRIPTION
+4d6152b6822072e89b6f2074e715772a *DESCRIPTION
 e8c1458438ead3c34974bc0be3a03ed6 *LICENSE
 c691991d947204cf4b18f86c8f76aa2d *NAMESPACE
 594803efb2b966cb1d90bcf766d87018 *R/autocor.plot.R
 c6eebc61a293273b2f131f34e1d4f1a2 *R/boxqq.r
 1efd6acdb4ba7d1a17f438f729d88f92 *R/ciReg.R
-c62db404c6ee78ca9371c5066ed7b718 *R/cooks20x.R
+a77d8c4794c802f7772cb7c73d533672 *R/cooks20x.R
 844cb5a869a68e72888eea899d0835e9 *R/crossFactors.R
 6d5416a4260a2336eeafe26850062ae8 *R/crosstabs.R
 4591bfc22575059fc0f9900ee9169d95 *R/eovcheck.R
@@ -16,7 +16,7 @@ c6ffdb946df9cbb9b4893cfda58d7101 *R/freq1way.r
 a5bfcad249587684b7331bd47575323a *R/interactionPlots.R
 b798fdef911cbfe47a9bc8633873f5e4 *R/layout20x.R
 8065bebafa85c0f406e93095ccb1c9a0 *R/levene.test.R
-5255e1cfa6f4d92a512ba507ae5aee8b *R/modcheck.R
+62ccebc477704c81d7bd690071cf438a *R/modcheck.R
 2bd8b975e8cfc90af875d5628a5d10f5 *R/multipleComp.R
 e7f594ff0b0aec5b713c40083ff4dc25 *R/normcheck.R
 2ae7ad5c975b6f03aeb5baf89fe1f3ae *R/onewayPlot.R
@@ -132,7 +132,7 @@ c53ed5744cc6d113f6e5765aca47d22b *man/camplake.df.Rd
 88a50d3dcdeb95383ce936fcf2276fc6 *man/chalk.df.Rd
 f7a4aa74e90fc1445a8ccbb083ccd132 *man/ciReg.Rd
 72673eb5fe27e84d70a0bcbfd21b58d0 *man/computer.df.Rd
-58ca89e8e522f7cece2db7b7c9d8b17c *man/cooks20x.Rd
+c62556587aef8616fcafaa339d05a7c6 *man/cooks20x.Rd
 b4831f7580282219c5d48fd8b0f81851 *man/course.df.Rd
 b22db765fb162c8c3c3f3cb63e50ad95 *man/course2way.df.Rd
 23e381ce47500268e728fae67f339553 *man/crossFactors.Rd
