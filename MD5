@@ -1,4 +1,4 @@
-1231e6370941ab7c5738167bfd9def95 *DESCRIPTION
+1ccc2922d8e916f5494ce608d4a27fb6 *DESCRIPTION
 e8c1458438ead3c34974bc0be3a03ed6 *LICENSE
 d7e52d848b4c6eed919014206c21bdfc *NAMESPACE
 594803efb2b966cb1d90bcf766d87018 *R/autocor.plot.R
@@ -9,7 +9,7 @@ a77d8c4794c802f7772cb7c73d533672 *R/cooks20x.R
 6d5416a4260a2336eeafe26850062ae8 *R/crosstabs.R
 4591bfc22575059fc0f9900ee9169d95 *R/eovcheck.R
 ba2e34506e456a6c5713680e40f2a6da *R/estimateContrasts.R
-1dcda33bf5f0eb1e4ff31d20a8b0abc5 *R/estimateContrasts1.R
+6bb42da2b033ed3bc6e545c97097c2c2 *R/estimateContrasts1.R
 8b0bedb8589f5f91a501e3aad0fa2c0a *R/estimateContrasts2.R
 c6ffdb946df9cbb9b4893cfda58d7101 *R/freq1way.r
 3974830a6865e408fe5278893d960ba3 *R/getVersion.R
@@ -19,11 +19,11 @@ b798fdef911cbfe47a9bc8633873f5e4 *R/layout20x.R
 62ccebc477704c81d7bd690071cf438a *R/modcheck.R
 453a88583622ec8a2fbe66128e21eb9a *R/multipleComp.R
 e7f594ff0b0aec5b713c40083ff4dc25 *R/normcheck.R
-2ae7ad5c975b6f03aeb5baf89fe1f3ae *R/onewayPlot.R
+b35b25f215493f0f2c6ccb2f5cbbdc1c *R/onewayPlot.R
 4307399d4134c6b6330dc22a33a40d7c *R/pairs20x.R
 e665543a80140526fc45285e4a9d0cec *R/predict20x.R
 4278913be5a22c0c3c96fd2c220c73ae *R/predictCount.R
-81dc7d1d7edf57c2dbf11fafa8e66d90 *R/predictGLM.R
+bb575f3137bfcba7429b97bb5b489c8b *R/predictGLM.R
 7280fa5f9df3a1e3419280f01e680a10 *R/propslsd.new.R
 434e2a3ef12d44a0e48381b3cc7e8052 *R/residPlot.R
 49e278ab868bbbc24de2a56d50de3ca8 *R/rowdistr.r
@@ -32,7 +32,7 @@ e665543a80140526fc45285e4a9d0cec *R/predict20x.R
 5868b9dac235ddf36b7e7f707df99246 *R/skewness.r
 9dc8120d518e18280b9db399c8c3bc6e *R/src-package.R
 bcd492799c40d1f30ce95342fa99699d *R/stripqq.r
-80b41c765991d34413283bdb2ebb114c *R/summary1way.R
+78d8dd5cdf8f8b4f6c3d9f263070edd4 *R/summary1way.R
 d574ea3652596d0f8ae58764307d1b2b *R/summary2way.R
 90864af886fb1ab72024926ce79e57d2 *R/summaryStats.R
 f5651d0faf5e07f619655e64dad950ef *R/trendscatter.R
