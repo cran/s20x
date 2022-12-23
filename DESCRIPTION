@@ -1,6 +1,6 @@
 Package: s20x
-Version: 3.1-32
-Date: 2022-12-19
+Version: 3.1-33
+Date: 2022-12-23
 Title: Functions for University of Auckland Course STATS 201/208 Data
         Analysis
 Authors@R: c(person(given = "Brant",
@@ -47,7 +47,7 @@ Imports: stats, graphics, methods
 License: GPL-2 | file LICENSE
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2022-12-19 02:23:21 UTC; jcur002
+Packaged: 2022-12-23 01:20:16 UTC; jcur002
 Author: Brant Deppa [aut] (Wrote the original R scripts this package is derived
     from),
   James Curran [aut, cre] (Wrote the original R package. Current
@@ -61,4 +61,4 @@ Author: Brant Deppa [aut] (Wrote the original R scripts this package is derived
   Brendan McArdle [ctr]
 Maintainer: James Curran <j.curran@auckland.ac.nz>
 Repository: CRAN
-Date/Publication: 2022-12-19 07:20:02 UTC
+Date/Publication: 2022-12-23 11:30:02 UTC

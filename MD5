@@ -1,4 +1,4 @@
-f03e22b6322be92e651a53e56e123da6 *DESCRIPTION
+3f72ebd44effa148acf790f0a0ea4e67 *DESCRIPTION
 e8c1458438ead3c34974bc0be3a03ed6 *LICENSE
 9dcb339ddad72440e85c35ea338f3529 *NAMESPACE
 594803efb2b966cb1d90bcf766d87018 *R/autocor.plot.R
@@ -16,7 +16,7 @@ c6ffdb946df9cbb9b4893cfda58d7101 *R/freq1way.r
 a5bfcad249587684b7331bd47575323a *R/interactionPlots.R
 b798fdef911cbfe47a9bc8633873f5e4 *R/layout20x.R
 8065bebafa85c0f406e93095ccb1c9a0 *R/levene.test.R
-fa184c0b3b3727b9546ce7b11991dd8e *R/modelcheck.R
+d9ab2267427c1fe5b938bf6ee32046d6 *R/modelcheck.R
 453a88583622ec8a2fbe66128e21eb9a *R/multipleComp.R
 f5b10fec376986dce604ea966118b486 *R/normcheck.R
 b35b25f215493f0f2c6ccb2f5cbbdc1c *R/onewayPlot.R
