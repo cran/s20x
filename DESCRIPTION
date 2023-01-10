@@ -1,5 +1,5 @@
 Package: s20x
-Version: 3.1-33
+Version: 3.1-34
 Date: 2022-12-23
 Title: Functions for University of Auckland Course STATS 201/208 Data
         Analysis
@@ -12,6 +12,10 @@ Authors@R: c(person(given = "Brant",
                     role = c("aut", "cre"),
                     email = "j.curran@auckland.ac.nz",
                     comment = "Wrote the original R package. Current maintainer."),
+            person(given = "Rachel",
+                    family = "Fewster",
+                    email = "r.fewster@auckland.ac.nz",
+                    role = "ctb"),
             person(given = "Russell",
                     family = "Millar",
                     email = "r.millar@auckland.ac.nz",
@@ -42,16 +46,18 @@ Description: A set of functions used in teaching STATS 201/208 Data Analysis at
     accessible to a large undergraduate population who are mostly not statistics
     majors.
 Depends: R (>= 4.0.0)
+Suggests: emmeans
 Encoding: UTF-8
 Imports: stats, graphics, methods
 License: GPL-2 | file LICENSE
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2022-12-23 01:20:16 UTC; jcur002
+Packaged: 2023-01-10 08:37:52 UTC; james
 Author: Brant Deppa [aut] (Wrote the original R scripts this package is derived
     from),
   James Curran [aut, cre] (Wrote the original R package. Current
     maintainer.),
+  Rachel Fewster [ctb],
   Russell Millar [ctb],
   Ben Stevenson [ctb],
   Andrew Balemi [ctb],
@@ -61,4 +67,4 @@ Author: Brant Deppa [aut] (Wrote the original R scripts this package is derived
   Brendan McArdle [ctr]
 Maintainer: James Curran <j.curran@auckland.ac.nz>
 Repository: CRAN
-Date/Publication: 2022-12-23 11:30:02 UTC
+Date/Publication: 2023-01-10 09:20:02 UTC
