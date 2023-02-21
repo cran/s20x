@@ -1,4 +1,4 @@
-d1e13e92961b3d414889bc42f5e8ad3d *DESCRIPTION
+f0bced40329aecda331264b3925ccab6 *DESCRIPTION
 e8c1458438ead3c34974bc0be3a03ed6 *LICENSE
 b1e1660c51f29e93bbb2851671cdbfca *NAMESPACE
 594803efb2b966cb1d90bcf766d87018 *R/autocor.plot.R
@@ -141,7 +141,7 @@ ea3d7ffdbf87c13a453773cea48027e8 *man/cooks20x.Rd
 efbf0f34c1f2e0a628d0d88c55f269c7 *man/crossFactors.Rd
 7e4791f789a61293aaaf3ab51f15effb *man/crosstabs.Rd
 1ceb7780fb0265d3d2384d9addea3f41 *man/diamonds.df.Rd
-4fc4e4e5d7c1fee3b090ec2341546fc6 *man/displayPairs.Rd
+3817ef80cbcd7b898e005ede15bb8ace *man/displayPairs.Rd
 d42e1f9c86eebf052c2698191cb29fab *man/eovcheck.Rd
 dbc426792afef90cd0a690d8c48a2608 *man/estimateContrasts.Rd
 ab6e856bd4d695263df7932a932d6a89 *man/fire.df.Rd
