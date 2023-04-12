@@ -1,4 +1,4 @@
-6f0ee0643c7978fb6c927435a8ca0e83 *DESCRIPTION
+dbab276d7c957cb27dedebe4cb08873f *DESCRIPTION
 bb3505f5c0c35bd873e77f88ba71d139 *LICENSE
 6ebb966d7e857419dd362906823f6a62 *NAMESPACE
 fe8e7c57ec742b7fbac1f4588cb3a03e *R/autocor.plot.R
@@ -20,7 +20,7 @@ b50eb8c5dd60c51f813a71ec33f62503 *R/layout20x.R
 7e7b5799a21c9a82658afcc4347483c0 *R/modcheck.R
 0260eb83babeff8d80da6729e9df5ac6 *R/modelcheck.R
 314f183258f23611adbb56a990b2ef70 *R/multipleComp.R
-011277cd963bdacbe95103fa141aaa7a *R/normcheck.R
+44b480ba2b024b5e827e78deabc9c3e1 *R/normcheck.R
 4343da100c15756e38b424a08cb77ff8 *R/onewayPlot.R
 2024ddb1cf3360caf2426e66bf2892bc *R/pairs20x.R
 4e225fc149650135faa29dbc6fb6eafc *R/predict20x.R
