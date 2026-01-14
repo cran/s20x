@@ -5,11 +5,13 @@
 \alias{apples.df}
 \title{Apples Data}
 \format{
-The data consist of a data frame with 104 observations on 3
-variables. \tabular{rlll}{ [,1] \tab Rootstock \tab factor \tab levels (I,
-II, III, IV, IX, V, VI, VII, X, XII, XIII, XV, XVI) \cr [,2] \tab Weight
-\tab integer \tab . \cr [,3] \tab Propagated \tab factor \tab levels
-(cutting, seed) }
+The data consist of a data frame with 104 observations on 4 variables.
+\describe{
+\item{Rootstock}{factor. levels (I, II, III, IV, IX, V, VI, VII, X, XII, XIII, XV, XVI)}
+\item{Weight}{integer. Above-ground weight of tree (pounds, lb).}
+\item{Weight_kg}{numeric. Above-ground weight of tree (kilograms, kg); \code{Weight_kg = Weight * 0.45359237}.}
+\item{Propagated}{factor. levels (cutting, seed)}
+}
 }
 \description{
 These data come from a classic long-term experiment conducted at the East
