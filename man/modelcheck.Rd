@@ -3,44 +3,74 @@
 \name{modelcheck}
 \alias{modelcheck}
 \alias{modelcheck.lm}
-\title{Model checking plots
-Compact layout for model checking plots.}
+\title{Model checking plots}
 \usage{
 modelcheck(x, ...)
 
-\method{modelcheck}{lm}(x, which = 1:3, mar = c(3, 4, 1.5, 4), ...)
+\method{modelcheck}{lm}(
+  x,
+  which = 1:3,
+  mar = c(3, 4, 1.5, 4),
+  engine = c("base", "ggplot2"),
+  ...
+)
 }
 \arguments{
 \item{x}{The fitted model.}
 
-\item{which}{The plot(s) to be drawn. Residuals vs fitted values (
-\code{which = v1}), 
-histogram and QQ plot of residuals (\code{which = 2}), Cook's distance plot 
-(\code{which = 2}).}
+\item{which}{The plot(s) to be drawn. Residuals versus fitted values
+(\code{which = 1}), histogram and Q-Q plot of residuals
+(\code{which = 2}), and Cook's distance plot (\code{which = 3}).}
 
-\item{mar}{Margins applied to each selected plot.}
+\item{mar}{Margins applied to each selected plot. Ignored by the ggplot2
+engine.}
 
-\item{\ldots}{any other arguments to pass to \code{\link{plot}}}
+\item{engine}{plotting engine to use. The default, \code{"base"}, preserves
+the original base graphics output. Use \code{"ggplot2"} for optional ggplot2
+objects.}
+
+\item{\ldots}{any other arguments to pass to \code{\link{plot}} for the base
+engine. Extra arguments are currently ignored by the ggplot2 engine.}
+}
+\value{
+Draws diagnostic plots for teaching model checking when using the
+base engine. With \code{engine = "ggplot2"}, returns a ggplot object for a
+single selected plot, or a named list of ggplot objects for multiple selected
+plots.
 }
 \description{
-Model checking plots
-Compact layout for model checking plots.
+Draw the teaching diagnostic plots used by older `s20x` workflows.
+`modelcheck()` is retained as an exported compatibility helper for model
+checking, while newer teaching material may use focused diagnostic helpers
+such as [eovcheck()], [normcheck()], and [cooks20x()] directly.
 }
-\section{Methods (by class)}{
-\itemize{
-\item \code{modelcheck(lm)}: Model checking plots
-
-}}
+\details{
+The default base graphics engine preserves the original teaching plots and
+draws directly on the active graphics device. The optional ggplot2 engine is
+intended for users who want reusable plot objects for reports or further
+customisation; it requires \pkg{ggplot2} to be installed and returns ggplot
+objects instead of drawing base graphics side effects.
+}
 \examples{
-x = 1:30
-y = rnorm(30)
-lm.fit = lm(y~x)
-# Plot resids vs fitted only
-modelcheck(lm.fit, 1)
+data(peru.df)
+lmFit = lm(BP ~ weight, data = peru.df)
 
-# Plot resids vs fitted, and histogram and QQ plot
-modelcheck(lm.fit, 1:2)
+# Plot residuals versus fitted values only
+modelcheck(lmFit, 1)
 
-# Plot all
-modelcheck(lm.fit)
+# Plot residuals versus fitted values, histogram, and Q-Q plot
+modelcheck(lmFit, 1:2)
+
+# Plot all diagnostics
+modelcheck(lmFit)
+
+# Optional ggplot2 engine for reusable plot objects
+if (requireNamespace("ggplot2", quietly = TRUE)) {
+  diagnosticPlots = modelcheck(lmFit, engine = "ggplot2")
+  names(diagnosticPlots)
+
+  modelcheck(lmFit, which = 1, engine = "ggplot2")
+  modelcheck(lmFit, which = 2, engine = "ggplot2")
+  modelcheck(lmFit, which = 3, engine = "ggplot2")
+}
 }

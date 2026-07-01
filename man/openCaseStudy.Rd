@@ -6,20 +6,25 @@
 \alias{ocs}
 \title{Open a case study source file in the editor}
 \usage{
-openCaseStudy(id, dest_dir = getwd(), overwrite = FALSE)
+openCaseStudy(id, dest_dir = getwd(), overwrite = FALSE, ...)
 
-opencs(id, dest_dir = getwd(), overwrite = FALSE)
+opencs(id, dest_dir = getwd(), overwrite = FALSE, ...)
 
-ocs(id, dest_dir = getwd(), overwrite = FALSE)
+ocs(id, dest_dir = getwd(), overwrite = FALSE, ...)
 }
 \arguments{
 \item{id}{Case study identifier. Flexible formats are accepted, including
 \code{"CS9_2"}, \code{"CS9.2"}, \code{"9_2"}, or \code{"9.2"}.}
 
 \item{dest_dir}{Directory to copy the case study into. Defaults to the
-current working directory.}
+current working directory. This legacy argument is retained for
+compatibility; new code may use the camelCase \code{destDir} alias through
+\code{...}.}
 
 \item{overwrite}{Logical; overwrite an existing file in \code{dest_dir}.}
+
+\item{...}{Additional compatibility arguments. Currently supports
+\code{destDir}, a camelCase alias for \code{dest_dir}.}
 }
 \value{
 Invisibly returns the path to the copied file.
@@ -30,8 +35,9 @@ inside the package is copied to \code{dest_dir} (so it is writable), then
 opened in the RStudio editor when available (otherwise the system editor).
 }
 \examples{
-\dontrun{
-openCaseStudy("2.1")
+if (interactive()) {
+  openCaseStudy("2.1")
+  openCaseStudy("2.1", destDir = tempdir())
 }
 
 }

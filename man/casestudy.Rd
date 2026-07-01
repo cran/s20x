@@ -20,14 +20,17 @@ cs(...)
 \code{"CS9_2"}, \code{"CS9.2"}, \code{"9_2"}, or \code{"9.2"}.}
 
 \item{output_dir}{Directory where the rendered HTML file should be written.
-Defaults to a temporary directory.}
+Defaults to a temporary directory. This legacy argument is retained for
+compatibility; new code may use the camelCase \code{outputDir} alias
+through \code{...}.}
 
 \item{open}{Logical; if \code{TRUE} (default), open the rendered HTML file in
 the default web browser.}
 
 \item{quiet}{Logical; passed to \code{rmarkdown::render()} to suppress output.}
 
-\item{...}{Additional arguments passed to \code{rmarkdown::render()}.}
+\item{...}{Additional arguments passed to \code{rmarkdown::render()}. Also
+supports \code{outputDir}, a camelCase alias for \code{output_dir}.}
 }
 \value{
 Invisibly returns the path to the rendered HTML file.
@@ -49,10 +52,11 @@ any required packages installed for the selected case study.
 The rendered HTML file is returned invisibly.
 }
 \examples{
-\dontrun{
-casestudy("CS9_2")
-casestudy("9.2")
-cs("9_2")
+if (interactive()) {
+  casestudy("CS9_2")
+  casestudy("9.2")
+  casestudy("9_2", outputDir = tempdir())
+  cs("9_2")
 }
 
 }
