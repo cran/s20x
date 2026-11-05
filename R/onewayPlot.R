@@ -13,8 +13,8 @@
 #' 'hsd','lsd' or 'ci'.
 #' @param pooled two options: pooled or unpooled standard deviation used for
 #' plotted intervals.
-#' @param strip if strip=F, boxplots are displayed instead.
-#' @param vert if vert=F, horizontal stripplots are displayed instead (boxplots
+#' @param strip if strip=FALSE, boxplots are displayed instead.
+#' @param vert if vert=FALSE, horizontal stripplots are displayed instead (boxplots
 #' can only be displayed vertically).
 #' @param verbose if true, print intervals on console.
 #' @param ylabel can be used to replace variable name of y by another string.
@@ -45,17 +45,20 @@
 #' oyster.fit = lm(log(Oysters)~Site, data = oysters.df)
 #' onewayPlot(oyster.fit)
 #' 
+#' @note Deprecated in s20x 3.4.0. \code{summary1way()} still draws this plot.
 #' @export onewayPlot
 #' @export twosampPlot
 #' @aliases onewayPlot twosampPlot
 onewayPlot = twosampPlot = function(x, ...) {
+    .Deprecated(msg = "onewayPlot() and twosampPlot() are deprecated; summary1way() still draws this plot.")
+
     UseMethod("onewayPlot")
 }
 
 #' @export
 #' @describeIn onewayPlot One-way Analysis of Variance Plot
 onewayPlot.default = function(x, f, conf.level = 0.95, interval.type = "tukey", pooled = TRUE, strip = TRUE, vert = TRUE, verbose = FALSE, 
-                              ylabel = deparse(terms(formula)[[2]]), flabel = deparse(terms(formula)[[3]]), ...) {
+                              ylabel = deparse1(substitute(x)), flabel = deparse1(substitute(f)), ...) {
     
     index = switch(interval.type, tukey = 1, hsd = 2, lsd = 3, ci = 4, 0)
     if (!index) 
@@ -66,6 +69,7 @@ onewayPlot.default = function(x, f, conf.level = 0.95, interval.type = "tukey", 
     y = x
     flabel = as.character(flabel)
     ylabel = as.character(ylabel)
+    f = factor(f)
     
     name = c("TUKEY intervals", "HSD intervals", "LSD intervals", "Confidence intervals")[index]
     mylevels = split(y, f)
@@ -252,5 +256,5 @@ onewayPlot.lm = function(x, ..., ylabel = nms[1], flabel = nms[2]) {
     nms = names(data)
     if (dim(data)[2] != 2) 
         warning("only the first variable will be used")
-    onewayPlot.default(data[, 1], data[, 2], ylabel = ylabel, flabel = flabel)
+    onewayPlot.default(data[, 1], data[, 2], ..., ylabel = ylabel, flabel = flabel)
 }

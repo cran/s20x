@@ -22,8 +22,11 @@
 #' data(computer.df)
 #' levene.test(score ~ factor(selfassess), computer.df)
 #'
+#' @note Deprecated in s20x 3.4.0. It will be removed in a later release.
 #' @export levene.test
 levene.test = function(formula, data, digit = 5, show.table = TRUE) {
+  .Deprecated(msg = "levene.test() is deprecated and will be removed from s20x.")
+
   call = match.call()
   m = match.call()
   mn = match(c("formula", "data"), names(m), 0)

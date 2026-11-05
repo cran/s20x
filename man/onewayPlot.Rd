@@ -19,8 +19,8 @@ onewayPlot(x, ...)
   strip = TRUE,
   vert = TRUE,
   verbose = FALSE,
-  ylabel = deparse(terms(formula)[[2]]),
-  flabel = deparse(terms(formula)[[3]]),
+  ylabel = deparse1(substitute(x)),
+  flabel = deparse1(substitute(f)),
   ...
 )
 
@@ -57,9 +57,9 @@ observation of x belongs to.}
 \item{pooled}{two options: pooled or unpooled standard deviation used for
 plotted intervals.}
 
-\item{strip}{if strip=F, boxplots are displayed instead.}
+\item{strip}{if strip=FALSE, boxplots are displayed instead.}
 
-\item{vert}{if vert=F, horizontal stripplots are displayed instead (boxplots
+\item{vert}{if vert=FALSE, horizontal stripplots are displayed instead (boxplots
 can only be displayed vertically).}
 
 \item{verbose}{if true, print intervals on console.}
@@ -85,6 +85,9 @@ levels. It is used as part of a one-way ANOVA analysis.
 \item \code{onewayPlot(lm)}: One-way Analysis of Variance Plot
 
 }}
+\note{
+Deprecated in s20x 3.4.0. \code{summary1way()} still draws this plot.
+}
 \examples{
 
 ##see example in 'summary1way'

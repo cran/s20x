@@ -29,8 +29,6 @@ test_that("modelcheck validates the plotting engine argument", {
 
 
 test_that("modelcheck ggplot2 engine returns ggplot objects when available", {
-  skip_if_not_installed("ggplot2")
-
   sampleData = data.frame(
     response = c(1.1, 1.9, 3.2, 3.8, 5.3, 5.7),
     predictor = c(1, 2, 3, 4, 5, 6)
@@ -51,8 +49,6 @@ test_that("modelcheck ggplot2 engine returns ggplot objects when available", {
 
 
 test_that("modelcheck ggplot2 engine prints without aesthetic mapping warnings", {
-  skip_if_not_installed("ggplot2")
-
   sampleData = data.frame(
     response = c(1.1, 1.9, 3.2, 3.8, 5.3, 5.7, 7.1, 8.2),
     predictor = c(1, 2, 3, 4, 5, 6, 7, 8)
@@ -67,8 +63,6 @@ test_that("modelcheck ggplot2 engine prints without aesthetic mapping warnings",
 
 
 test_that("modelcheck ggplot2 engine uses base-like theme and Cook vertical lines", {
-  skip_if_not_installed("ggplot2")
-
   sampleData = data.frame(
     response = c(1.1, 1.9, 3.2, 3.8, 5.3, 5.7, 7.1, 8.2),
     predictor = c(1, 2, 3, 4, 5, 6, 7, 8)
@@ -86,4 +80,17 @@ test_that("modelcheck ggplot2 engine uses base-like theme and Cook vertical line
   expect_true(inherits(allPlots$cooks$theme$panel.grid.major, "element_blank"))
   expect_true("GeomSegment" %in% layerGeoms)
   expect_false("GeomLine" %in% layerGeoms)
+})
+
+test_that("modelcheck uses the base engine unless asked otherwise", {
+  data("peru.df", package = "s20x", envir = environment())
+
+  local_mocked_bindings(modelcheck_ggplot2 = function(...) {
+    stop("the ggplot2 engine should not be used by default")
+  })
+
+  pdf(NULL)
+  on.exit(dev.off(), add = TRUE)
+
+  expect_no_error(modelcheck(lm(BP ~ weight, data = peru.df)))
 })

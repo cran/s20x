@@ -1,5 +1,5 @@
 Package: s20x
-Version: 3.3.0
+Version: 3.4.0
 Title: Functions for University of Auckland Course STATS 201/208 Data
         Analysis
 Authors@R: c(
@@ -25,16 +25,17 @@ Depends: R (>= 4.0.0)
 Suggests: bootstrap, dafs, emmeans, formatR, knitr, markdown, testthat
         (>= 3.0.0)
 Encoding: UTF-8
+LazyData: true
 Imports: stats, graphics, grDevices, methods, GGally, ggplot2, nlme,
         rlang, rmarkdown, rstudioapi, tools, utils
 License: GPL-2 | file LICENSE
-URL: https://github.com/STATS-UOA/s20x
+URL: https://stats-uoa.github.io/s20x/,
+        https://github.com/STATS-UOA/s20x
 BugReports: https://github.com/STATS-UOA/s20x/issues
 Config/testthat/edition: 3
-Config/roxygen2/version: 8.0.0
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.1.1
 NeedsCompilation: no
-Packaged: 2026-06-29 21:25:45 UTC; james
+Packaged: 2026-11-05 04:15:15 UTC; jcur002
 Author: Brant Deppa [aut] (Wrote the original R scripts this package is derived
     from),
   James Curran [aut, cre] (Wrote the original R package. Current
@@ -50,4 +51,4 @@ Author: Brant Deppa [aut] (Wrote the original R scripts this package is derived
   Brendan McArdle [ctb]
 Maintainer: James Curran <j.curran@auckland.ac.nz>
 Repository: CRAN
-Date/Publication: 2026-07-01 06:50:02 UTC
+Date/Publication: 2026-11-05 05:00:02 UTC

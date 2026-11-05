@@ -22,8 +22,6 @@ test_that("tslm still evaluates formulas with an explicit data frame", {
 })
 
 test_that("tslm evaluates AR formulas and time variables without explicit data", {
-  skip_if_not_installed("nlme")
-
   y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3)
   x = seq_len(8)
   t = seq_len(8)
@@ -50,8 +48,6 @@ test_that("tslm calling-environment fits match explicit data frame fits", {
 })
 
 test_that("tslm AR calling-environment fits match explicit data frame fits", {
-  skip_if_not_installed("nlme")
-
   data(airpass.df)
 
   passengers = airpass.df$passengers
@@ -96,8 +92,6 @@ test_that("tslm rejects unsupported future error structures", {
 })
 
 test_that("tslm fits AR models when nlme is available", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -119,8 +113,6 @@ test_that("tslm preserves no-intercept mean formulas", {
 })
 
 test_that("tslm reports missing time variables clearly", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -153,8 +145,6 @@ test_that("tslm validates AR order", {
 })
 
 test_that("tslm accepts quoted and unquoted time column names", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -181,8 +171,6 @@ test_that("tslm exposes common model generics", {
 })
 
 test_that("summary.tslm prints a compact teaching summary", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -220,8 +208,6 @@ test_that("plot.tslm supports the teaching diagnostic plots", {
 })
 
 test_that("plot.tslm aligns AR model diagnostics without dropping values", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -302,8 +288,6 @@ test_that("normcheck.tslm can use normalised residuals", {
 })
 
 test_that("anova.tslm prints a compact teaching table for AR fits", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -328,8 +312,6 @@ test_that("anova.tslm prints a compact teaching table for AR fits", {
 })
 
 test_that("anova.tslm can return verbose underlying anova output", {
-  skip_if_not_installed("nlme")
-
   data = data.frame(
     y = c(1.0, 1.5, 2.1, 2.7, 3.0, 3.4, 4.0, 4.3),
     x = seq_len(8),
@@ -345,8 +327,6 @@ test_that("anova.tslm can return verbose underlying anova output", {
 
 
 test_that("documented airpass.df teaching workflow is stable", {
-  skip_if_not_installed("nlme")
-
   data(airpass.df)
 
   fit = tslm(log(passengers) ~ t + month + ar(1),
@@ -371,8 +351,6 @@ test_that("documented airpass.df teaching workflow is stable", {
 })
 
 test_that("documented tslm diagnostic residual choices run", {
-  skip_if_not_installed("nlme")
-
   data(airpass.df)
 
   fit = tslm(log(passengers) ~ t + month + ar(1),
@@ -386,4 +364,204 @@ test_that("documented tslm diagnostic residual choices run", {
   expect_silent(plot(fit))
   expect_silent(plot(fit, residualType = "response"))
   expect_silent(normcheck(fit))
+})
+
+shuffleTimeOrder = function(data) {
+  data[order((data$t * 61) %% 145), ]
+}
+
+test_that("tslm diagnostics follow time order when rows are shuffled", {
+  data(airpass.df)
+  shuffledData = shuffleTimeOrder(airpass.df)
+  expect_false(identical(shuffledData$t, airpass.df$t))
+
+  getData = getS20xInternal("getTslmDiagnosticData")
+  sortedDiagnostics = getData(
+    tslm(log(passengers) ~ t, data = airpass.df, time = t),
+    residualType = "response"
+  )
+  shuffledDiagnostics = getData(
+    tslm(log(passengers) ~ t, data = shuffledData, time = t),
+    residualType = "response"
+  )
+
+  expect_equal(shuffledDiagnostics$time, airpass.df$t)
+  expect_equal(unname(shuffledDiagnostics$residuals), unname(sortedDiagnostics$residuals))
+  expect_equal(unname(shuffledDiagnostics$fitted), unname(sortedDiagnostics$fitted))
+})
+
+test_that("tslm AR diagnostics follow time order when rows are shuffled", {
+  data(airpass.df)
+
+  getData = getS20xInternal("getTslmDiagnosticData")
+  sortedDiagnostics = getData(tslm(log(passengers) ~ t + ar(1), data = airpass.df, time = t))
+  shuffledDiagnostics = getData(
+    tslm(log(passengers) ~ t + ar(1), data = shuffleTimeOrder(airpass.df), time = t)
+  )
+
+  expect_equal(shuffledDiagnostics$time, airpass.df$t)
+  expect_equal(
+    as.numeric(shuffledDiagnostics$residuals),
+    as.numeric(sortedDiagnostics$residuals),
+    tolerance = 1e-3
+  )
+})
+
+test_that("tslm AR coefficients do not depend on row order", {
+  data(airpass.df)
+
+  sortedFit = tslm(log(passengers) ~ t + ar(1), data = airpass.df, time = t)
+  shuffledFit = tslm(log(passengers) ~ t + ar(1), data = shuffleTimeOrder(airpass.df), time = t)
+
+  expect_equal(coef(shuffledFit), coef(sortedFit), tolerance = 1e-4)
+})
+
+test_that("tslm diagnostics keep row order when no time variable is supplied", {
+  data(airpass.df)
+  fit = tslm(log(passengers) ~ t, data = airpass.df)
+  diagnosticData = getS20xInternal("getTslmDiagnosticData")(fit, residualType = "response")
+
+  expect_equal(diagnosticData$time, seq_len(nrow(airpass.df)))
+  expect_equal(
+    unname(diagnosticData$residuals),
+    unname(residuals(lm(log(passengers) ~ t, data = airpass.df)))
+  )
+})
+
+test_that("tslm keeps offset terms in the mean model", {
+  data(airpass.df)
+
+  fit = tslm(log(passengers) ~ t + offset(log(t)), data = airpass.df)
+  expect_equal(coef(fit), coef(lm(log(passengers) ~ t + offset(log(t)), data = airpass.df)))
+  expect_true("offset(log(t))" %in% rownames(attr(terms(fit$meanFormula), "factors")))
+
+  noInterceptFit = tslm(log(passengers) ~ t + offset(log(t)) - 1, data = airpass.df)
+  expect_equal(
+    coef(noInterceptFit),
+    coef(lm(log(passengers) ~ t + offset(log(t)) - 1, data = airpass.df))
+  )
+
+  offsetOnlyFit = tslm(log(passengers) ~ offset(log(t)), data = airpass.df)
+  expect_equal(coef(offsetOnlyFit), coef(lm(log(passengers) ~ offset(log(t)), data = airpass.df)))
+})
+
+test_that("tslm stops rather than dropping an offset from an AR model", {
+  data(airpass.df)
+
+  expect_error(
+    tslm(log(passengers) ~ t + offset(log(t)) + ar(1), data = airpass.df, time = t),
+    "offset"
+  )
+})
+
+test_that("tslm finds variables local to a calling function alongside data", {
+  data(airpass.df)
+
+  fitInsideFunction = function(data) {
+    localTrend = sqrt(data$t)
+    tslm(log(passengers) ~ t + localTrend, data = data)
+  }
+  localTrend = sqrt(airpass.df$t)
+
+  expect_equal(
+    coef(fitInsideFunction(airpass.df)),
+    coef(lm(log(passengers) ~ t + localTrend, data = airpass.df))
+  )
+})
+
+test_that("tslm finds a local time variable alongside data", {
+  data(airpass.df)
+
+  fitInsideFunction = function(data) {
+    timeIndex = data$t
+    tslm(log(passengers) ~ t + ar(1), data = data, time = timeIndex)
+  }
+
+  fit = fitInsideFunction(airpass.df)
+
+  expect_equal(
+    coef(fit),
+    coef(tslm(log(passengers) ~ t + ar(1), data = airpass.df, time = t))
+  )
+})
+
+test_that("tslm AR(1) fits match a direct gls fit", {
+  data(airpass.df)
+
+  direct = gls(
+    log(passengers) ~ t + month,
+    data = airpass.df,
+    correlation = corARMA(p = 1, q = 0, form = ~ t),
+    method = "REML"
+  )
+  fit = tslm(log(passengers) ~ t + month + ar(1), data = airpass.df, time = t)
+
+  expect_equal(coef(fit), coef(direct), tolerance = 1e-5)
+  expect_equal(
+    unname(getS20xInternal("getTslmArParameters")(fit)),
+    unname(coef(direct$modelStruct$corStruct, unconstrained = FALSE)),
+    tolerance = 1e-4
+  )
+  expect_equal(as.numeric(logLik(fit)), as.numeric(logLik(direct)))
+  expect_equal(AIC(fit), AIC(direct))
+  expect_equal(BIC(fit), BIC(direct))
+  expect_equal(vcov(fit), vcov(direct), tolerance = 1e-4)
+  expect_equal(as.numeric(fitted(fit)), as.numeric(fitted(direct)), tolerance = 1e-5)
+})
+
+test_that("tslm AR(2) fits match a direct gls fit", {
+  data(airpass.df)
+
+  direct = gls(
+    log(passengers) ~ t + month,
+    data = airpass.df,
+    correlation = corARMA(p = 2, q = 0, form = ~ t),
+    method = "REML"
+  )
+  fit = tslm(log(passengers) ~ t + month + ar(2), data = airpass.df, time = t)
+
+  expect_equal(fit$errorSpec$p, 2L)
+  expect_equal(coef(fit), coef(direct), tolerance = 1e-5)
+  expect_length(getS20xInternal("getTslmArParameters")(fit), 2)
+  expect_equal(
+    unname(getS20xInternal("getTslmArParameters")(fit)),
+    unname(coef(direct$modelStruct$corStruct, unconstrained = FALSE)),
+    tolerance = 1e-4
+  )
+})
+
+test_that("tslm anova tables match the underlying fits", {
+  data(airpass.df)
+
+  lmFit = lm(log(passengers) ~ t + month, data = airpass.df)
+  expect_equal(
+    as.data.frame(anova(tslm(log(passengers) ~ t + month, data = airpass.df))),
+    as.data.frame(anova(lmFit))
+  )
+
+  direct = gls(
+    log(passengers) ~ t + month,
+    data = airpass.df,
+    correlation = corARMA(p = 1, q = 0, form = ~ t),
+    method = "REML"
+  )
+  arTable = anova(tslm(log(passengers) ~ t + month + ar(1), data = airpass.df, time = t))
+  directTable = anova(direct)
+  keptTerms = rownames(arTable)
+
+  expect_equal(
+    as.numeric(arTable[["F value"]]),
+    as.numeric(directTable[keptTerms, "F-value"]),
+    tolerance = 1e-3
+  )
+})
+
+test_that("tslm predict matches the underlying model", {
+  data(airpass.df)
+
+  lmFit = lm(log(passengers) ~ t, data = airpass.df)
+  fit = tslm(log(passengers) ~ t, data = airpass.df)
+  newdata = data.frame(t = c(145, 146))
+
+  expect_equal(predict(fit, newdata), predict(lmFit, newdata))
 })

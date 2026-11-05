@@ -22,6 +22,8 @@ Plots current vs lagged residuals along with quadrants dividing these
 residuals about the value zero.
 }
 \note{
+Deprecated in s20x 3.4.0. Use \code{acf(residuals(fit))} instead.
+
 \code{autocor.plot} is deprecated and no longer exported.
   Use \code{autocorPlot()} in new code.
 }

@@ -7,7 +7,7 @@
 #'
 #'
 #' @param fit an lm object, i.e. the output from \code{\link{lm}}.
-#' @param digit decimal numbers after the point.
+#' @param digits decimal numbers after the point.
 #' @param conf.level confidence level of the intervals.
 #' @param inttype three options for intervals appeared on plot: 'hsd','lsd' or
 #' 'ci'.
@@ -44,7 +44,7 @@
 #' result
 #'
 #' @export
-summary1way = function(fit, digit = 5, conf.level = 0.95,
+summary1way = function(fit, digits = 5, conf.level = 0.95,
                        inttype = "tukey", pooled = TRUE,
                        print.out = TRUE, draw.plot = TRUE, ...) {
     if (!inherits(fit, "lm")) {
@@ -63,10 +63,10 @@ summary1way = function(fit, digit = 5, conf.level = 0.95,
 
     # calculate the ANOVA table
     aDf = c(anovaList$Df, sum(anovaList$Df))
-    aSs = round(c(anovaList$"Sum Sq", sum(anovaList$"Sum Sq")), digit)
-    aMs = round(anovaList$"Mean Sq", digit)
-    fValue = round(anovaList$"F value"[1], digit)
-    pValue = round(anovaList$"Pr(>F)"[1], digit)
+    aSs = round(c(anovaList$"Sum Sq", sum(anovaList$"Sum Sq")), digits)
+    aMs = round(anovaList$"Mean Sq", digits)
+    fValue = round(anovaList$"F value"[1], digits)
+    pValue = round(anovaList$"Pr(>F)"[1], digits)
     aTable = cbind(
         aDf,
         aSs,
@@ -105,34 +105,59 @@ summary1way = function(fit, digit = 5, conf.level = 0.95,
 
     # calculate the effects
     grandMean = mean(y)
-    # Small 'hack' for R 4.0+ as we may not have factors and dummy.coef
-    # doesn't handle this.
-    groupEffectColumn = data.frame(names(group))
-    colnames(groupEffectColumn) = colnames(fit$model)[2]
-    groupEffects = predict(fit, newdata = groupEffectColumn) - grandMean
+    # Take these from the fitted values so that transformed terms such as
+    # factor(x) work, since predict() would need the original variable.
+    groupEffects = vapply(
+        split(fit$fitted.values, f1),
+        function(groupFitted) {
+            groupFitted[[1]]
+        },
+        numeric(1)
+    ) - grandMean
+    names(groupEffects) = seq_along(groupEffects)
     effectMatrix = c(grandMean, groupEffects)
     names(effectMatrix) = c("typ.val", names(split(y, f1)))
 
+    result = structure(
+        list(
+            Df = aDf,
+            `Sum of Sq` = aSs,
+            `Mean Sq` = aMs,
+            `F value` = anovaList$"F value"[1],
+            `Pr(F)` = anovaList$"Pr(>F)"[1],
+            `Main Effect` = grandMean,
+            `Group Effects` = groupEffects
+        ),
+        display = list(
+            anovaTable = aTable,
+            numericSummary = numericSummary,
+            effects = effectMatrix,
+            digits = digits
+        ),
+        class = "s20xSummary1way"
+    )
+
     if (print.out) {
-        cat("ANOVA Table:\n")
-        print(aTable, quote = FALSE)
-        cat("\nNumeric Summary:\n")
-        print(round(numericSummary, digit))
-        cat("\nTable of Effects: (GrandMean and deviations from GM)\n")
-        print(round(effectMatrix, digit))
+        print(result)
     }
 
     if (draw.plot) {
-        onewayPlot(fit, conf.level = conf.level, interval.type = inttype)
+        onewayPlot.lm(fit, conf.level = conf.level, interval.type = inttype, pooled = pooled)
     }
 
-    invisible(list(
-        Df = aDf,
-        `Sum of Sq` = aSs,
-        `Mean Sq` = aMs,
-        `F value` = anovaList$"F value"[1],
-        `Pr(F)` = anovaList$"Pr(>F)"[1],
-        `Main Effect` = grandMean,
-        `Group Effects` = groupEffects
-    ))
+    invisible(result)
+}
+
+#' @export
+print.s20xSummary1way = function(x, ...) {
+    display = attr(x, "display")
+
+    cat("ANOVA Table:\n")
+    print(display$anovaTable, quote = FALSE)
+    cat("\nNumeric Summary:\n")
+    print(round(display$numericSummary, display$digits))
+    cat("\nTable of Effects: (GrandMean and deviations from GM)\n")
+    print(round(display$effects, display$digits))
+
+    invisible(x)
 }

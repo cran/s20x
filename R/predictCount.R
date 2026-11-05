@@ -5,10 +5,10 @@
 #' the link scale, exponentiates the fitted values and limits, rounds the result,
 #' and optionally prints the returned table.
 #'
-#' This is not an S3 \code{predict()} method and is not intended to be a
-#' drop-in replacement for base R prediction methods. It is a specialised
-#' count-focused teaching wrapper. For a more general log-link or logit-link GLM
-#' helper, see \code{\link{predictGLM}}.
+#' New work should use \code{\link{predict20x}}, which handles \code{lm} and
+#' \code{glm} fits with one function. \code{predictCount()} always exponentiates,
+#' so for a logit-link model it returns odds, as
+#' \code{predict20x(type = "odds")} does.
 #'
 #' Note: \code{newdata} must be a data frame with the same column order and
 #' data types as those used in fitting the model. This stricter interface is kept
@@ -26,39 +26,25 @@
 #'   \item{Conf.upper}{the upper confidence limit on the response scale.}
 #' }
 #' @seealso \code{\link{predict}}, \code{\link{predict.glm}}, \code{\link{predictGLM}}, \code{\link{as.data.frame}}.
+#' @note Deprecated in s20x 3.4.0. Use \code{\link{predict20x}} instead, with
+#'   \code{type = "odds"} for the odds from a logit-link model.
 #' @keywords htest
 #' @export predictCount
 predictCount = function(object, newdata, cilevel = 0.95, digit = 3, print.out = TRUE, ...) {
+  .Deprecated(msg = "predictCount() is deprecated; use predict20x() instead.")
+
   if (!inherits(object, "glm")) {
     stop("First input is not a \"glm\" object")
   }
 
   validatePredictionNewdata(newdata)
 
-  rowNames = paste("pred", 1:nrow(newdata), sep = ".")
-  rowNames = 1:nrow(newdata)
-  termNames = attr(object$terms, "term.labels")
-  splitFactorNames = unlist(strsplit(termNames, "factor\\("))
-  splitTermNames = unlist(strsplit(splitFactorNames, "\\)"))
-  columnNames = splitTermNames
-
-  if (ncol(newdata) != length(columnNames)) {
-    stop("Incorrectly input the new data!")
-  }
-
-  dimnames(newdata) = list(rowNames, columnNames)
-  predictions = predictGlmWithSe(object, newdata, ...)
-  intervalQuantile = glmTeachingIntervalQuantile(cilevel)
-  intervals = glmTeachingConfidenceIntervals(
-    fit = predictions$fit,
-    seFit = predictions$se.fit,
-    cilevel = cilevel,
-    quantile = intervalQuantile
-  )
+  newdata = alignPredictionNewdata(object, newdata)
+  predictions = glmTeachingPrediction(object, newdata, cilevel)
   predictionValues = exp(cbind(
     predicted = predictions$fit,
-    confLower = intervals$confLower,
-    confUpper = intervals$confUpper
+    confLower = predictions$confLower,
+    confUpper = predictions$confUpper
   ))
   predictionFrame = formatTeachingPredictionFrame(
     values = predictionValues,

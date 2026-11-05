@@ -33,14 +33,18 @@ the link scale, exponentiates the fitted values and limits, rounds the result,
 and optionally prints the returned table.
 }
 \details{
-This is not an S3 \code{predict()} method and is not intended to be a
-drop-in replacement for base R prediction methods. It is a specialised
-count-focused teaching wrapper. For a more general log-link or logit-link GLM
-helper, see \code{\link{predictGLM}}.
+New work should use \code{\link{predict20x}}, which handles \code{lm} and
+\code{glm} fits with one function. \code{predictCount()} always exponentiates,
+so for a logit-link model it returns odds, as
+\code{predict20x(type = "odds")} does.
 
 Note: \code{newdata} must be a data frame with the same column order and
 data types as those used in fitting the model. This stricter interface is kept
 for compatibility with the original teaching wrapper.
+}
+\note{
+Deprecated in s20x 3.4.0. Use \code{\link{predict20x}} instead, with
+  \code{type = "odds"} for the odds from a logit-link model.
 }
 \seealso{
 \code{\link{predict}}, \code{\link{predict.glm}}, \code{\link{predictGLM}}, \code{\link{as.data.frame}}.

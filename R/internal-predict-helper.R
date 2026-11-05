@@ -220,3 +220,64 @@ glmTeachingIntervalQuantile = function(cilevel, object = NULL, quasit = FALSE) {
 
   qnorm(percent)
 }
+
+#' Align prediction data with a fitted model
+#'
+#' Columns are used by name when `newdata` supplies every variable in the model,
+#' which is what transformed terms such as `log(x)` need. Otherwise columns are
+#' taken in order, either one per variable or one per model term.
+#'
+#' @param object Fitted model object.
+#' @param newdata Prediction data frame.
+#'
+#' @return `newdata` with usable column names and row names `1`, `2`, and so on.
+#' @keywords internal
+#' @noRd
+alignPredictionNewdata = function(object, newdata) {
+  modelTerms = terms(object)
+  predictorNames = all.vars(delete.response(modelTerms))
+
+  if (!all(predictorNames %in% names(newdata))) {
+    termLabels = attr(modelTerms, "term.labels")
+
+    if (ncol(newdata) == length(predictorNames)) {
+      names(newdata) = predictorNames
+    } else if (ncol(newdata) == length(termLabels)) {
+      names(newdata) = gsub("^factor\\((.*)\\)$", "\\1", termLabels)
+    } else {
+      stop("Incorrectly input the new data!")
+    }
+  }
+
+  rownames(newdata) = seq_len(nrow(newdata))
+
+  newdata
+}
+
+#' Calculate glm predictions with confidence limits on the link scale
+#'
+#' @param object Fitted `glm` model.
+#' @param newdata Prediction data frame.
+#' @param cilevel Numeric confidence level.
+#' @param quasit Whether quasi models should use a t multiplier.
+#' @param ... Additional arguments passed to `predict.glm()`.
+#'
+#' @return A list with `fit`, `seFit`, `confLower`, and `confUpper`.
+#' @keywords internal
+#' @noRd
+glmTeachingPrediction = function(object, newdata, cilevel, quasit = FALSE, ...) {
+  pred = predictGlmWithSe(object, newdata, ...)
+  intervals = glmTeachingConfidenceIntervals(
+    fit = pred$fit,
+    seFit = pred$se.fit,
+    cilevel = cilevel,
+    quantile = glmTeachingIntervalQuantile(cilevel, object, quasit)
+  )
+
+  list(
+    fit = pred$fit,
+    seFit = pred$se.fit,
+    confLower = intervals$confLower,
+    confUpper = intervals$confUpper
+  )
+}

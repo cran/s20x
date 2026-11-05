@@ -28,9 +28,6 @@ test_that("pairs20x validates the plotting engine argument", {
 
 
 test_that("pairs20x ggplot2 engine returns a GGally plot matrix when available", {
-  skip_if_not_installed("ggplot2")
-  skip_if_not_installed("GGally")
-
   values = data.frame(
     first = c(1, 2, 3, 4, 5),
     second = c(2, 4, 6, 8, 10),
@@ -44,9 +41,6 @@ test_that("pairs20x ggplot2 engine returns a GGally plot matrix when available",
 
 
 test_that("pairs20x ggplot2 engine uses base-like matrix styling", {
-  skip_if_not_installed("ggplot2")
-  skip_if_not_installed("GGally")
-
   values = data.frame(
     first = c(1, 2, 3, 4, 5, 6),
     second = c(2, 4, 6, 8, 10, 12),
@@ -62,9 +56,6 @@ test_that("pairs20x ggplot2 engine uses base-like matrix styling", {
 
 
 test_that("pairs20x ggplot2 correlation sizing keeps small correlations small", {
-  skip_if_not_installed("ggplot2")
-  skip_if_not_installed("GGally")
-
   correlationPanel = getS20xInternal("pairs20x_ggplot2CorrelationPanel")
   values = data.frame(
     first = c(1, 2, 3, 4, 5, 6),
@@ -82,9 +73,6 @@ test_that("pairs20x ggplot2 correlation sizing keeps small correlations small", 
 
 
 test_that("pairs20x ggplot2 histogram panel reserves diagonal label space", {
-  skip_if_not_installed("ggplot2")
-  skip_if_not_installed("GGally")
-
   histogramPanel = getS20xInternal("pairs20x_ggplot2HistogramPanel")
   values = data.frame(first = c(1, 2, 3, 4, 5, 6, 7, 8))
   aesFun = get("aes", envir = asNamespace("ggplot2"), inherits = FALSE)
@@ -96,4 +84,28 @@ test_that("pairs20x ggplot2 histogram panel reserves diagonal label space", {
   expect_s3_class(panel, "ggplot")
   expect_equal(labelLayer$data$y, 1.3 * max(hist(values$first, plot = FALSE)$counts))
   expect_equal(panel$coordinates$limits$y, c(0, 1.5 * max(hist(values$first, plot = FALSE)$counts)))
+})
+
+test_that("pairs20x base engine accepts point options", {
+  data("peru.df", package = "s20x", envir = environment())
+
+  pdf(NULL)
+  on.exit(dev.off(), add = TRUE)
+
+  expect_silent(pairs20x(peru.df, pch = 19))
+  expect_silent(pairs20x(peru.df, col = "red"))
+  expect_silent(pairs20x(peru.df, pch = 19, col = "blue", cex = 0.5))
+})
+
+test_that("pairs20x uses the base engine unless asked otherwise", {
+  data("peru.df", package = "s20x", envir = environment())
+
+  local_mocked_bindings(pairs20x_ggplot2 = function(...) {
+    stop("the ggplot2 engine should not be used by default")
+  })
+
+  pdf(NULL)
+  on.exit(dev.off(), add = TRUE)
+
+  expect_no_error(pairs20x(peru.df))
 })

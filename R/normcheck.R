@@ -12,9 +12,9 @@
 #' information will be extracted from \code{x}.
 #'
 #' The default base graphics engine preserves the original teaching plots and
-#' draws directly on the active graphics device. The optional ggplot2 engine is
+#' draws directly on the active graphics device. The ggplot2 engine is
 #' intended for users who want reusable plot objects for reports or further
-#' customisation; it requires \pkg{ggplot2} to be installed and returns ggplot
+#' customisation, and returns ggplot
 #' objects instead of drawing base graphics side effects.
 #'
 #' @param x the residuals from fitting a linear model.  Alternatively, a fitted \code{lm} object.
@@ -32,7 +32,7 @@
 #' value for \code{pch} as defined in \code{\link{par}}.
 #' @param bcol the plotting colour used for the bootstrap samples. Legal values are the same as any legal
 #' value for \code{col} as defined in \code{\link{par}}.
-#' @param shapiro.wilk if \code{TRUE}, the P-value from the Shapiro-Wilk
+#' @param shapiro.wilk deprecated. If \code{TRUE}, the P-value from the Shapiro-Wilk
 #' test for normality is displayed in the top-left corner of the Q-Q plot.
 #' @param whichPlot legal values are  \code{1}, \code{2}, and any pair of the two, i.e. \code{1:2}, \code{2:1},
 #' \code{c(1,2)}, \code{c(2,1)}, or variants of \code{c(1,1)}.
@@ -48,7 +48,7 @@
 #' are both accepted for compatibility. Other choices are \code{"response"} and
 #' \code{"pearson"}.
 #' @param engine plotting engine to use. The default, \code{"base"}, preserves
-#' the original base graphics output. Use \code{"ggplot2"} for optional ggplot2
+#' the original base graphics output. Use \code{"ggplot2"} for ggplot2
 #' objects.
 #' @param \dots additional arguments which are passed to both \code{qqnorm} and \code{hist}
 #' for the base engine. Extra arguments are currently ignored by the ggplot2
@@ -82,14 +82,12 @@
 #' peruFit = lm(BP ~ weight, data = peru.df)
 #' normcheck(peruFit)
 #'
-#' # Optional ggplot2 engine for reusable plot objects
-#' if (requireNamespace("ggplot2", quietly = TRUE)) {
-#'   normPlots = normcheck(peruFit, engine = "ggplot2")
-#'   names(normPlots)
+#' # ggplot2 engine for reusable plot objects
+#' normPlots = normcheck(peruFit, engine = "ggplot2")
+#' names(normPlots)
 #'
-#'   normcheck(peruFit, engine = "ggplot2", whichPlot = 1)
-#'   normcheck(peruFit, engine = "ggplot2", whichPlot = 2)
-#' }
+#' normcheck(peruFit, engine = "ggplot2", whichPlot = 1)
+#' normcheck(peruFit, engine = "ggplot2", whichPlot = 2)
 #'
 #' @export normcheck
 normcheck = function(x, ...) {
@@ -110,17 +108,21 @@ normcheck.default = function(x,
                              engine = c("base", "ggplot2"), ...) {
   engine = matchPlottingEngine(engine)
 
+  if (isTRUE(shapiro.wilk)) {
+    .Deprecated(msg = "The shapiro.wilk argument of normcheck() is deprecated and will be removed from s20x.")
+  }
+
   if (!all(whichPlot %in% 1:2)) {
     stop("whichPlot must be in 1:2")
   }
 
-  labels = prepareNormcheckLabels(x, xlab, ylab, main, whichPlot)
+  labels = prepareNormcheckLabels(deparse1(substitute(x)), xlab, ylab, main, whichPlot)
   xlab = labels$xlab
   ylab = labels$ylab
   main = labels$main
 
-  col = match.arg(col, c("light blue", colors()))
-  bcol = match.arg(bcol, colors())
+  col = resolvePlotColour(col, c("light blue", colors()), "col")
+  bcol = resolvePlotColour(bcol, colors(), "bcol")
 
   if (engine == "ggplot2") {
     return(normcheck_ggplot2(
@@ -241,14 +243,14 @@ normcheck.tslm = function(x, xlab = c("Theoretical Quantiles", ""),
 
 #' Prepare normcheck labels in selected plot order
 #'
-#' @param x residual vector.
+#' @param xName text describing the data, used as the default histogram label.
 #' @param xlab x-axis labels.
 #' @param ylab y-axis labels.
 #' @param main plot titles.
 #' @param whichPlot selected plot identifiers.
 #' @return A list of ordered labels.
 #' @noRd
-prepareNormcheckLabels = function(x, xlab, ylab, main, whichPlot) {
+prepareNormcheckLabels = function(xName, xlab, ylab, main, whichPlot) {
   if (length(xlab) == length(whichPlot)) {
     if (length(whichPlot) == 2) {
       xlab = xlab[whichPlot]
@@ -266,7 +268,7 @@ prepareNormcheckLabels = function(x, xlab, ylab, main, whichPlot) {
   if (2 %in% whichPlot) {
     idx = which(whichPlot == 2)
     if (!is.na(xlab[idx]) && xlab[idx] == "") {
-      xlab[idx] = deparse(substitute(x))
+      xlab[idx] = xName
     }
   }
 
@@ -402,8 +404,6 @@ normcheckBase = function(x, xlab, ylab, main, col, bootstrap, B, bpch, bcol,
 #' @noRd
 normcheck_ggplot2 = function(x, xlab, ylab, main, col, bootstrap, B, bpch, bcol,
                             shapiro.wilk, whichPlot) {
-  requirePlottingPackage("ggplot2")
-
   plots = vector("list", length(whichPlot))
   names(plots) = ifelse(whichPlot == 1, "qq", "histogram")
 
@@ -571,7 +571,7 @@ normcheck_ggplot2_Histogram = function(x, xlab, ylab, main, col) {
 
 #' Print ggplot2 normcheck plots
 #'
-#' Draws multiple ggplot2 normcheck plots side by side so the optional ggplot2
+#' Draws multiple ggplot2 normcheck plots side by side so the ggplot2
 #' engine mirrors the base graphics layout for the default \code{whichPlot = 1:2}
 #' case.
 #'
